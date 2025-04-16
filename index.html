@@ -7,36 +7,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  background: url('IMG_7787.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Inter', sans-serif;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background: url('IMG_7787.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .card {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
-  padding: 24px 16px;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-    .card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 25px;
+      padding: 24px 16px;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      width: 100px;
+      height: 130px;
+      border-radius: 20px;
+      object-fit: cover;
       margin-bottom: 20px;
-      border: 2px solid #fff;
+      border: 3px solid #007aff; /* Updated to match other site */
     }
 
     .card h1 {
@@ -46,22 +49,32 @@
 
     .card p {
       font-size: 15px;
-      margin: 6px 0;
+      margin: 6px 0 20px;
     }
 
-    .card em {
-      display: block;
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
       margin-top: 20px;
-      font-size: 13px;
-      opacity: 0.7;
     }
 
-    .logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #3498db;
+    .button {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #000000, #007aff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -70,6 +83,11 @@
     <img src="IMG_7790.png" alt="Gabe Mods Logo" class="logo" />
     <h1>Gabe Mods</h1>
     <p>I am a coder and modder based in the UK</p>
+    <div class="buttons">
+      <a href="#" class="button" title="Telegram">T</a>
+      <a href="#" class="button" title="GitHub">G</a>
+      <a href="#" class="button" title="Snapchat">S</a>
+    </div>
   </div>
 </body>
 </html>
