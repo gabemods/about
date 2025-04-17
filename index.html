@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gabe Mods | About</title>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Gabe Mods",
-  "url": "https://gabemods.github.io",
-  "logo": "https://gabemods.github.io/assets/images/IMG_7790.jpeg"
-}
-</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Gabe Mods",
+    "url": "https://gabemods.github.io",
+    "logo": "https://gabemods.github.io/assets/images/IMG_7790.jpeg"
+  }
+  </script>
   
   <!-- SEO Meta Tags -->
   <meta name="description" content="Gabe Mods – UK-based coder and modder. Check out my projects and socials." />
@@ -37,10 +37,9 @@
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/favicon/favicon-32x32.ico">
-<link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/favicon/favicon-16x16.ico">
-<link rel="manifest" href="/assets/favicon/site.webmanifest">
-  
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/favicon/favicon-32x32.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/favicon/favicon-16x16.ico">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -79,6 +78,11 @@
       object-fit: cover;
       margin-bottom: 20px;
       border: 3px solid #007aff;
+      transition: transform 0.2s ease;
+    }
+
+    .logo.clicked {
+      transform: scale(1.1);
     }
 
     .card h1 {
@@ -129,8 +133,8 @@
 <body>
   <div class="card">
     <a href="https://gabemods.github.io/Gabe-Mods-Website/">
-  <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
-</a>
+      <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
+    </a>
     <h1>Gabe Mods</h1>
     <p>I am a coder and modder based in the UK</p>
     <div class="buttons">
@@ -145,5 +149,15 @@
       </a>
     </div>
   </div>
+
+  <script>
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('click', () => {
+      logo.classList.add('clicked');
+      setTimeout(() => {
+        logo.classList.remove('clicked');
+      }, 200);
+    });
+  </script>
 </body>
 </html>
