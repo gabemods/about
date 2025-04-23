@@ -3,12 +3,12 @@
     "short_name": "Gabe Mods",
     "icons": [
         {
-            "src": "/favicon-16x16.png",
+            "src": "/favicon-16x16.ico",
             "sizes": "16x16",
             "type": "image/png"
         },
         {
-            "src": "/favicon-32x32.png",
+            "src": "/favicon-32x32.ico",
             "sizes": "32x32",
             "type": "image/png"
         },
