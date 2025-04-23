@@ -5,41 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gabe Mods | About</title>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Gabe Mods",
-    "url": "https://gabemods.github.io",
-    "logo": "https://gabemods.github.io/assets/images/IMG_7790.jpeg"
-  }
-  </script>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Gabe Mods – UK-based coder and modder. Check out my projects and socials." />
-  <meta name="keywords" content="Gabe Mods, coding, modding, Telegram mods, GitHub projects" />
-  <meta name="author" content="Gabe Mods" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="google-site-verification" content="HihCOsgH0UVQPbqo7pMEgDNXIXR16hIm907pXZPI3w8" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Gabe Mods | About" />
-  <meta property="og:description" content="UK-based coder and modder. Find me on Telegram, GitHub, and Snapchat." />
-  <meta property="og:image" content="/assets/images/IMG_7790.jpeg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://gabemods.github.io" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Gabe Mods | About" />
-  <meta name="twitter:description" content="UK-based coder and modder. Follow me online." />
-  <meta name="twitter:image" content="assets/images/IMG_7790.jpeg" />
-
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/favicon/favicon-32x32.ico">
-  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/favicon/favicon-16x16.ico">
-  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <!-- Meta and SEO omitted for brevity - keep the ones from your original HTML -->
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -54,38 +20,32 @@
       background-size: cover;
       font-family: 'Inter', sans-serif;
       color: white;
-    }
-
-    .scroll-container {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .page {
-      scroll-snap-align: center;
-      flex-shrink: 0;
-      width: 100vw;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    .card-container {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      padding: 0 16px;
+    }
+
     .card {
+      flex: 0 0 100%;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 25px;
       padding: 24px 16px;
-      max-width: 280px;
       text-align: center;
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      scroll-snap-align: start;
     }
 
     .logo {
@@ -135,98 +95,96 @@
       transform: scale(1.1);
     }
 
-    .button svg {
+    .button svg, .button img {
       width: 20px;
       height: 20px;
       fill: white;
     }
 
-    .button img {
-      width: 20px;
-      height: 20px;
-    }
-
-    .indicators {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+    .project-link {
       display: flex;
-      gap: 10px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 12px;
+      text-decoration: none;
+      color: white;
+      margin-top: 16px;
+      transition: background 0.2s;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      opacity: 0.4;
-      border-radius: 50%;
-      transition: opacity 0.3s ease;
+    .project-link:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
-    .dot.active {
-      opacity: 1;
+    .project-link img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin-right: 12px;
+      border: 2px solid #007aff;
+    }
+
+    .project-link .name {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .card-container {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 100vh;
+        padding: 16px;
+      }
+
+      .card {
+        flex: 0 0 auto;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="scroll-container">
-    <!-- Page 1 -->
-    <div class="page">
-      <div class="card">
-        <a href="https://gabemods.github.io/Gabe-Mods-Website/">
-          <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
+  <div class="card-container">
+    <!-- First Card -->
+    <div class="card">
+      <a href="https://gabemods.github.io/Gabe-Mods-Website/">
+        <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
+      </a>
+      <h1>Gabe Mods</h1>
+      <p>I am a coder and modder based in the UK</p>
+      <div class="buttons">
+        <a href="https://t.me/Gabriel_Mods_Channel" class="button" title="Telegram" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M9.036 16.572l-.376 3.94c.537 0 .768-.231 1.05-.508l2.526-2.375 5.244 3.828c.963.529 1.651.25 1.886-.89l3.42-16.13.001-.003c.298-1.394-.504-1.94-1.404-1.612L1.188 9.117C-.155 9.615-.144 10.392.963 10.733l5.203 1.622L19.04 4.732c.475-.288.909-.13.553.158l-11.34 9.125z"/></svg>
         </a>
-        <h1>Gabe Mods</h1>
-        <p>I am a coder and modder based in the UK</p>
-        <div class="buttons">
-          <a href="https://t.me/Gabriel_Mods_Channel" class="button" title="Telegram" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M9.036 16.572l-.376 3.94c.537 0 .768-.231 1.05-.508l2.526-2.375 5.244 3.828c.963.529 1.651.25 1.886-.89l3.42-16.13.001-.003c.298-1.394-.504-1.94-1.404-1.612L1.188 9.117C-.155 9.615-.144 10.392.963 10.733l5.203 1.622L19.04 4.732c.475-.288.909-.13.553.158l-11.34 9.125z"/></svg>
-          </a>
-          <a href="https://github.com/gabemods" class="button" title="GitHub" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M12 .5C5.648.5.5 5.648.5 12c0 5.092 3.292 9.398 7.86 10.925.574.103.785-.25.785-.557 0-.274-.01-1.004-.016-1.97-3.197.695-3.87-1.54-3.87-1.54-.522-1.328-1.276-1.683-1.276-1.683-1.044-.714.08-.7.08-.7 1.154.082 1.761 1.185 1.761 1.185 1.027 1.76 2.695 1.252 3.35.957.104-.744.402-1.252.73-1.54-2.553-.29-5.238-1.276-5.238-5.682 0-1.255.448-2.28 1.183-3.082-.118-.29-.512-1.458.113-3.04 0 0 .964-.31 3.158 1.18.916-.254 1.9-.382 2.88-.387.98.005 1.964.133 2.88.387 2.193-1.49 3.156-1.18 3.156-1.18.627 1.582.233 2.75.115 3.04.736.802 1.183 1.827 1.183 3.082 0 4.416-2.688 5.39-5.25 5.675.41.35.776 1.037.776 2.09 0 1.51-.014 2.725-.014 3.096 0 .31.21.665.79.552C20.21 21.394 23.5 17.09 23.5 12c0-6.352-5.148-11.5-11.5-11.5z"/></svg>
-          </a>
-          <a href="https://www.snapchat.com/add/gabe_mods?share_id=1AxCc8C2wmk&locale=en-GB" class="button" title="Snapchat" target="_blank">
-            <img src="/assets/images/snapchat-outline-svgrepo-com.svg" alt="Snapchat" />
-          </a>
-        </div>
+        <a href="https://github.com/gabemods" class="button" title="GitHub" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 .5C5.648.5.5 5.648.5 12c0 5.092 3.292 9.398 7.86 10.925.574.103.785-.25.785-.557 0-.274-.01-1.004-.016-1.97-3.197.695-3.87-1.54-3.87-1.54-.522-1.328-1.276-1.683-1.276-1.683-1.044-.714.08-.7.08-.7 1.154.082 1.761 1.185 1.761 1.185 1.027 1.76 2.695 1.252 3.35.957.104-.744.402-1.252.73-1.54-2.553-.29-5.238-1.276-5.238-5.682 0-1.255.448-2.28 1.183-3.082-.118-.29-.512-1.458.113-3.04 0 0 .964-.31 3.158 1.18.916-.254 1.9-.382 2.88-.387.98.005 1.964.133 2.88.387 2.193-1.49 3.156-1.18 3.156-1.18.627 1.582.233 2.75.115 3.04.736.802 1.183 1.827 1.183 3.082 0 4.416-2.688 5.39-5.25 5.675.41.35.776 1.037.776 2.09 0 1.51-.014 2.725-.014 3.096 0 .31.21.665.79.552C20.21 21.394 23.5 17.09 23.5 12c0-6.352-5.148-11.5-11.5-11.5z"/></svg>
+        </a>
+        <a href="https://www.snapchat.com/add/gabe_mods?share_id=1AxCc8C2wmk&locale=en-GB" class="button" title="Snapchat" target="_blank">
+          <img src="/assets/images/snapchat-outline-svgrepo-com.svg" alt="Snapchat" />
+        </a>
       </div>
     </div>
 
-    <!-- Page 2 -->
-    <div class="page">
-      <div class="card">
-        <h1>More Projects</h1>
-        <p>Visit my other website to see more.</p>
-        <div class="buttons">
-          <a href="https://gabemods.netlify.app" class="button" title="Visit" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L10 12.59 11.41 14 19 6.41V10h2V3h-7zM5 5h5V3H3v7h2V5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-          </a>
-        </div>
-      </div>
+    <!-- Second Card -->
+    <div class="card">
+      <h1>My Projects</h1>
+      <a href="https://gabemods.github.io/Gabe-Mods-Website" class="project-link">
+        <img src="assets/images/IMG_7790.jpeg" alt="Project Logo" />
+        <span class="name">Gabe Mods Website</span>
+      </a>
     </div>
-  </div>
-
-  <!-- Indicators -->
-  <div class="indicators">
-    <div class="dot active"></div>
-    <div class="dot"></div>
   </div>
 
   <script>
-    const container = document.querySelector('.scroll-container');
-    const dots = document.querySelectorAll('.dot');
     const logo = document.querySelector('.logo');
-
-    container.addEventListener('scroll', () => {
-      const index = Math.round(container.scrollLeft / container.offsetWidth);
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    });
-
     logo.addEventListener('click', () => {
       logo.classList.add('clicked');
-      setTimeout(() => logo.classList.remove('clicked'), 200);
+      setTimeout(() => {
+        logo.classList.remove('clicked');
+      }, 200);
     });
   </script>
 </body>
