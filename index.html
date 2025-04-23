@@ -4,6 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gabe Mods | About</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Gabe Mods",
+    "url": "https://gabemods.github.io",
+    "logo": "https://gabemods.github.io/assets/images/IMG_7790.jpeg"
+  }
+  </script>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Gabe Mods – UK-based coder and modder. Check out my projects and socials." />
+  <meta name="keywords" content="Gabe Mods, coding, modding, Telegram mods, GitHub projects" />
+  <meta name="author" content="Gabe Mods" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="google-site-verification" content="HihCOsgH0UVQPbqo7pMEgDNXIXR16hIm907pXZPI3w8" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Gabe Mods | About" />
+  <meta property="og:description" content="UK-based coder and modder. Find me on Telegram, GitHub, and Snapchat." />
+  <meta property="og:image" content="/assets/images/IMG_7790.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gabemods.github.io" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gabe Mods | About" />
+  <meta name="twitter:description" content="UK-based coder and modder. Follow me online." />
+  <meta name="twitter:image" content="assets/images/IMG_7790.jpeg" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/favicon/favicon-32x32.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/favicon/favicon-16x16.ico">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -14,26 +51,32 @@
     html, body {
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
+      height: 100vh;
+      overflow: hidden;
       font-family: 'Inter', sans-serif;
-      color: white;
     }
 
     body {
-      height: 200vh;
       background: url('IMG_7787.jpeg') no-repeat center center fixed;
       background-size: cover;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
+      color: white;
     }
 
-    section {
-      height: 100vh;
+    .scroll-container {
+      display: flex;
+      height: 100%;
+      width: 200vw;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .card-wrapper {
+      flex: 0 0 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
       scroll-snap-align: start;
-      padding: 20px;
     }
 
     .card {
@@ -47,43 +90,18 @@
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInCard 1.2s ease-out forwards;
+      transform: scale(0.95);
+      animation: fadeIn 1s ease-out forwards;
     }
 
-    @keyframes fadeInCard {
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeIn {
       to {
         opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .logo, .card h1, .card p, .buttons {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInItem 1s ease-out forwards;
-    }
-
-    .logo {
-      animation-delay: 0.6s;
-    }
-
-    .card h1 {
-      animation-delay: 0.9s;
-    }
-
-    .card p {
-      animation-delay: 1.2s;
-    }
-
-    .buttons {
-      animation-delay: 1.5s;
-    }
-
-    @keyframes fadeInItem {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
       }
     }
 
@@ -94,11 +112,11 @@
       object-fit: cover;
       margin-bottom: 20px;
       border: 3px solid #007aff;
-      transition: transform 0.2s;
+      transition: transform 0.3s ease;
     }
 
     .logo:active {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     .card h1 {
@@ -139,60 +157,40 @@
       height: 20px;
       fill: white;
     }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 2s infinite;
-      font-size: 20px;
-      opacity: 0.7;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(10px); }
-    }
   </style>
 </head>
 <body>
-
-  <!-- First section -->
-  <section>
-    <div class="card">
-      <a href="https://gabemods.github.io/Gabe-Mods-Website/">
-        <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
-      </a>
-      <h1>Gabe Mods</h1>
-      <p>I am a coder and modder based in the UK</p>
-      <div class="buttons">
-        <a href="https://t.me/Gabriel_Mods_Channel" class="button" title="Telegram" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M9.036 16.572..."/></svg>
+  <div class="scroll-container">
+    <!-- Card 1 -->
+    <div class="card-wrapper">
+      <div class="card">
+        <a href="https://gabemods.github.io/Gabe-Mods-Website/">
+          <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
         </a>
-        <a href="https://github.com/gabemods" class="button" title="GitHub" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 .5..."/></svg>
-        </a>
-        <a href="https://www.snapchat.com/add/gabe_mods" class="button" title="Snapchat" target="_blank">
-          <img src="/assets/images/snapchat-outline-svgrepo-com.svg" alt="Snapchat" />
-        </a>
+        <h1>Gabe Mods</h1>
+        <p>I am a coder and modder based in the UK</p>
+        <div class="buttons">
+          <a href="https://t.me/Gabriel_Mods_Channel" class="button" title="Telegram" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M9.036 16.572l-.376 3.94..."/></svg>
+          </a>
+          <a href="https://github.com/gabemods" class="button" title="GitHub" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 .5C5.648.5.5 5.648..."/></svg>
+          </a>
+          <a href="https://www.snapchat.com/add/gabe_mods?share_id=1AxCc8C2wmk&locale=en-GB" class="button" title="Snapchat" target="_blank">
+            <img src="/assets/images/snapchat-outline-svgrepo-com.svg" alt="Snapchat" />
+          </a>
+        </div>
       </div>
     </div>
-    <div class="scroll-indicator">↓</div>
-  </section>
 
-  <!-- Second section -->
-  <section>
-    <div class="card" style="animation-delay: 0.3s">
-      <h1>Explore More</h1>
-      <p>Check out my other site for more cool stuff!</p>
-      <div class="buttons">
-        <a href="https://your-other-site.example.com" class="button" title="Other Website" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M10 2..."/></svg>
-        </a>
+    <!-- Card 2 -->
+    <div class="card-wrapper">
+      <div class="card">
+        <h1>Other Projects</h1>
+        <p>Check out my second site for more cool stuff</p>
+        <a href="https://example.com" class="button" target="_blank">Visit Site</a>
       </div>
     </div>
-  </section>
-
+  </div>
 </body>
 </html>
