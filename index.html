@@ -41,12 +41,17 @@
   <link rel="icon" type="image/x-icon" sizes="16x16" href="assets/favicon/favicon-16x16.ico">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="gabemods.github.io/(Regular) One UI Sans.ttf" rel="stylesheet">
+ @font-face {
+            font-family: 'OneUISans';
+            src: url('https://raw.githubusercontent.com/gabemods/gabemods.github.io/main/(Regular)%20One%20UI%20Sans.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
   <style>
     body {
+      font-family: 'OneUISans', sans-serif;
+    }
       margin: 0;
       padding: 0;
       height: 100vh;
