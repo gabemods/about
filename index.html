@@ -61,6 +61,14 @@
       color: white;
     }
 
+<!-- Indicators -->
+<div class="indicator-wrapper">
+  <div class="indicators">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+  </div>
+</div>
+    
     .scroll-container {
       display: flex;
       flex-direction: row;
@@ -180,27 +188,40 @@
       font-weight: bold;
     }
 
-    .indicators {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
+    .indicator-wrapper {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  border-radius: 20px; /* Pill shape */
+  padding: 8px 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      opacity: 0.4;
-      border-radius: 50%;
-      transition: opacity 0.3s ease;
-    }
+.indicators {
+  display: flex;
+  gap: 10px;
+}
 
-    .dot.active {
-      opacity: 1;
-    }
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  opacity: 0.4;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  opacity: 1;
+  transform: scale(1.5);
+}
   </style>
 </head>
 <body>
