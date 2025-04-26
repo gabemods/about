@@ -51,17 +51,23 @@
     }
 
     .card {
-      width: min(90vw, 320px);
-      max-width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 25px;
-      padding: 24px 16px;
-      text-align: center;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  padding: 24px 16px;
+  max-width: 280px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease; /* <--- add this */
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .card {
+    transform: scale(0.75);
+  }
+}
 
     .logo {
       width: 120px;
