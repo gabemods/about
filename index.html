@@ -227,20 +227,25 @@
   </div>
 
   <script>
-    const container = document.querySelector('.scroll-container');
-    const dots = document.querySelectorAll('.dot');
-    const logo = document.querySelector('.logo');
+  const container = document.querySelector('.scroll-container');
+  const dots = document.querySelectorAll('.dot');
+  const logo = document.querySelector('.logo');
 
-    container.addEventListener('scroll', () => {
-      const index = Math.round(container.scrollLeft / container.offsetWidth);
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    });
+  container.addEventListener('scroll', () => {
+    const index = Math.round(container.scrollLeft / container.offsetWidth);
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
 
-    logo.addEventListener('click', () => {
-      logo.classList.add('clicked');
-      setTimeout(() => logo.classList.remove('clicked'), 200);
-    });
-  </script>
+    // After 1 second, remove the "active" size but keep it visible
+    setTimeout(() => {
+      dots[index].classList.remove('active');
+    }, 1000);
+  });
+
+  logo.addEventListener('click', () => {
+    logo.classList.add('clicked');
+    setTimeout(() => logo.classList.remove('clicked'), 200);
+  });
+</script>
 </body>
 </html>
