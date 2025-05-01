@@ -289,11 +289,13 @@
       object-fit: cover;
     }
 
-    .project-card-info { /* New container for the header and description */
-      display: flex;
-      flex-direction: column;
-      margin-left: 10px; /* Add some space between the logo and text */
-    }
+    .project-card-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; /* Add some space between the logo and text */
+  justify-content: flex-start; /* Align items to the start of the container (top) */
+  padding-top: 5px; /* Add some padding at the top to move content down */
+}
 
     .project-card span {
       font-weight: bold;
