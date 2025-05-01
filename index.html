@@ -94,122 +94,8 @@
     }
 
     .logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid #007aff;
-      transition: transform 0.2s ease;
-    }
-
-    .logo.clicked {
-      transform: scale(1.1);
-    }
-
-    .card h1 {
-      font-size: 24px;
-      margin: 10px 0 5px;
-    }
-
-    .card p {
-      font-size: 15px;
-      margin: 6px 0 20px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .button {
-      width: 45px;
-      height: 45px;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .button:hover {
-      transform: scale(1.1);
-    }
-
-    .button svg, .button img {
-      width: 25px;
-      height: 25px;
-      fill: white;
-    }
-  <style>
-    @font-face {
-      font-family: 'OneUISans';
-      src: url('https://raw.githubusercontent.com/gabemods/gabemods.github.io/main/assets/fonts/(Regular)%20One%20UI%20Sans.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: url('assets/images/IMG_7787.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'OneUISans', sans-serif;
-      color: white;
-    }
-
-    .scroll-container {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      width: 100%;
-      height: 100dvh;
-    }
-
-    .page {
-      scroll-snap-align: center;
-      flex-shrink: 0;
-      width: 100%;
-      height: 100dvh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .card {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 25px;
-      padding: 24px 16px;
-      max-width: 280px;
-      text-align: center;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease; /* <--- add this */
-    }
-
-    @media (max-width: 768px) and (orientation: landscape) {
-      .card {
-        transform: scale(0.75);
-      }
-    }
-
-    .logo {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
@@ -292,9 +178,9 @@
     .project-card-info {
   display: flex;
   flex-direction: column;
-  margin-left: 10px; /* Add some space between the logo and text */
+  margin-left: 0px; /* Add some space between the logo and text */
   justify-content: flex-start; /* Align items to the start of the container (top) */
-  padding-top: 5px; /* Add some padding at the top to move content down */
+  padding-top: 20px; /* Add some padding at the top to move content down */
 }
 
     .project-card span {
@@ -344,6 +230,35 @@
       opacity: 1;
       transform: scale(1.1);
     }
+     .project-card-header-website {
+    margin-top: 0px; /* Example margin-top for the first header */
+    margin-left: 5px; /* Example margin-left for the first header */
+  }
+
+  .project-card-description-website {
+    margin-top: 2px; /* Example margin-top for the first description */
+    margin-left: 2px; /* Example margin-left for the first description */
+  }
+
+  .project-card-header-v2 {
+    margin-top: 15px; /* Example margin-top for the second header */
+    margin-left: -7px; /* Example margin-left for the second header */
+  }
+
+  .project-card-description-v2 {
+    margin-top: 3px; /* Example margin-top for the second description */
+    margin-left: 3px; /* Example margin-left for the second description */
+  }
+
+  .project-card-header-friends {
+    margin-top: 0px; /* Example margin-top for the third header */
+    margin-left: -120px; /* Example margin-left for the third header */
+  }
+
+  .project-card-description-friends {
+    margin-top: 1px; /* Example margin-top for the third description */
+    margin-left: -10px; /* Example margin-left for the third description */
+  }
   </style>
 </head>
 
@@ -371,28 +286,28 @@
       </div>
     </div>
 
-       <div class="page">
+        <div class="page">
       <div class="card">
         <h1>My Projects</h1>
-        <a href="https://gabemods.github.io/Gabe-Mods-Website/" class="project-card" target="_blank">
+        <a href="https://gabemods.github.io/Gabe-Mods-Website/" class="project-card project-card-website" target="_blank">
           <img src="assets/images/IMG_7790.jpeg" alt="Project Logo">
           <div class="project-card-info">
-            <span>Gabe Mods Website</span>
-            <p class="project-description">My Main Website</p>
+            <span class="project-card-header-website">Gabe Mods Website</span>
+            <p class="project-card-description-website">My Main Website</p>
           </div>
         </a>
-        <a href="https://gabemods.github.io/v2/" class="project-card" target="_blank">
+        <a href="https://gabemods.github.io/v2/" class="project-card project-card-v2" target="_blank">
           <img src="assets/images/IMG_7790.jpeg" alt="Project Logo">
           <div class="project-card-info">
-            <span>Gabe Mods Website V2</span>
-            <p class="project-description">The second version of the website above used for testing new designs and features.</p>
+            <span class="project-card-header-v2">Gabe Mods Website V2</span>
+            <p class="project-card-description-v2">Version Two of the website above.</p>
           </div>
         </a>
-        <a href="https://gabemods.github.io/Friends/" class="project-card" target="_blank">
+        <a href="https://gabemods.github.io/Friends/" class="project-card project-card-friends" target="_blank">
           <img src="assets/images/IMG_7790.jpeg" alt="Project Logo">
           <div class="project-card-info">
-            <span>Friends</span>
-            <p class="project-description">A collection of profile cards for my friends and I.</p>
+            <span class="project-card-header-friends">Friends</span>
+            <p class="project-card-description-friends">A collection of profile cards.</p>
           </div>
         </a>
       </div>
