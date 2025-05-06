@@ -339,62 +339,36 @@ body.dark-mode .copyright-box {
    <p>I like to code websites and apps. I mainly use these programming languages: <strong>HTML, CSS and JavaScript. </strong>I also mod games & apps. </p>
     
         <p class="wave-text">
-  <span>S</span><span>w</span><span>i</span><span>p</span><span>e</span> 
-  <span>r</span><span>i</span><span>g</span><span>h</span><span>t</span> 
-  <span>t</span><span>o</span> 
-  <span>f</span><span>i</span><span>n</span><span>d</span> 
-  <span>m</span><span>y</span> 
-  <span>p</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span> 
-  <span>(</span><span>P</span><span>C</span> 
-  <span>u</span><span>s</span><span>e</span><span>r</span><span>s</span> 
-  <span>n</span><span>e</span><span>e</span><span>d</span> 
-  <span>t</span><span>o</span> 
-  <span>h</span><span>o</span><span>l</span><span>d</span> 
-  <span>d</span><span>o</span><span>w</span><span>n</span> 
-  <span>t</span><span>h</span><span>e</span> 
-  <span>s</span><span>c</span><span>r</span><span>o</span><span>l</span><span>l</span> 
-  <span>w</span><span>h</span><span>e</span><span>e</span><span>l</span> 
-  <span>a</span><span>n</span><span>d</span> 
-  <span>s</span><span>w</span><span>i</span><span>p</span><span>e</span> 
-  <span>t</span><span>o</span> 
-  <span>n</span><span>a</span><span>v</span><span>i</span><span>g</span><span>a</span><span>t</span><span>e</span> 
-  <span>p</span><span>a</span><span>g</span><span>e</span><span>s</span><span>.</span><span>)</span> 
-  <span>→</span>
+  Swipe right to find my projects (PC users need to hold down the scroll wheel and swipe to navigate pages.) →
 </p>
 
 <style>
-.wave-text {
-  color: grey;
-  font-size: 15px;
-  font-family: 'OneUISans';
-}
+  .wave-text {
+    color: grey;
+    font-size: 20px;
+    font-family: 'OneUISans', sans-serif;
+    line-height: 1.6;
+    display: inline;
+  }
 
-.wave-text span {
-  display: inline-block;
-  animation: wave 2s infinite;
-}
+  .wave-text span {
+    display: inline-block;
+    animation: wave 1.5s infinite ease-in-out;
+  }
 
-.wave-text span:nth-child(odd) { animation-delay: calc(var(--i) * 0.06s); }
-.wave-text span:nth-child(even) { animation-delay: calc(var(--i) * 0.06s); }
-
-.wave-text span {
-  --i: 0;
-}
-.wave-text span:nth-child(n) {
-  --i: var(--n, 0);
-}
-
-@keyframes wave {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.4); }
-}
+  @keyframes wave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
 </style>
 
 <script>
-// Assign index to each span for delay
-document.querySelectorAll('.wave-text span').forEach((el, i) => {
-  el.style.setProperty('--n', i);
-});
+  // Wrapping each word in a <span> for smooth animation
+  document.querySelectorAll('.wave-text').forEach(function(p) {
+    p.innerHTML = p.innerText.split(' ').map(function(word) {
+      return '<span>' + word + '</span>';
+    }).join(' ');
+  });
 </script>
         <div class="buttons">
           <a href="https://t.me/Gabriel_Mods_Channel" class="button" title="Telegram" target="_blank">
