@@ -336,31 +336,65 @@ body.dark-mode .copyright-box {
   </a>
   <h1>Gabe Mods</h1>
 </div>
-        <p>I like to code websites and apps. I mainly use these programming languages: <strong>HTML, CSS and JavaScript. </strong>I also mod games & apps. </p>
-         <p class="ripple-text">
-  Swipe right to find my projects (PC users need to hold down the scroll wheel and swipe to navigate pages.) →
+        <p class="wave-text">
+  <span>S</span><span>w</span><span>i</span><span>p</span><span>e</span> 
+  <span>r</span><span>i</span><span>g</span><span>h</span><span>t</span> 
+  <span>t</span><span>o</span> 
+  <span>f</span><span>i</span><span>n</span><span>d</span> 
+  <span>m</span><span>y</span> 
+  <span>p</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span> 
+  <span>(</span><span>P</span><span>C</span> 
+  <span>u</span><span>s</span><span>e</span><span>r</span><span>s</span> 
+  <span>n</span><span>e</span><span>e</span><span>d</span> 
+  <span>t</span><span>o</span> 
+  <span>h</span><span>o</span><span>l</span><span>d</span> 
+  <span>d</span><span>o</span><span>w</span><span>n</span> 
+  <span>t</span><span>h</span><span>e</span> 
+  <span>s</span><span>c</span><span>r</span><span>o</span><span>l</span><span>l</span> 
+  <span>w</span><span>h</span><span>e</span><span>e</span><span>l</span> 
+  <span>a</span><span>n</span><span>d</span> 
+  <span>s</span><span>w</span><span>i</span><span>p</span><span>e</span> 
+  <span>t</span><span>o</span> 
+  <span>n</span><span>a</span><span>v</span><span>i</span><span>g</span><span>a</span><span>t</span><span>e</span> 
+  <span>p</span><span>a</span><span>g</span><span>e</span><span>s</span><span>.</span><span>)</span> 
+  <span>→</span>
 </p>
 
 <style>
-.ripple-text {
+.wave-text {
   color: grey;
-  display: inline-block;
-  background: linear-gradient(90deg, grey 0%, grey 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: ripple 2s infinite linear;
+  font-size: 20px;
+  white-space: nowrap;
+  font-family: sans-serif;
 }
-@keyframes ripple {
-  0% {
-    background-position: -100% 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
+
+.wave-text span {
+  display: inline-block;
+  animation: wave 2s infinite;
+}
+
+.wave-text span:nth-child(odd) { animation-delay: calc(var(--i) * 0.06s); }
+.wave-text span:nth-child(even) { animation-delay: calc(var(--i) * 0.06s); }
+
+.wave-text span {
+  --i: 0;
+}
+.wave-text span:nth-child(n) {
+  --i: var(--n, 0);
+}
+
+@keyframes wave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.4); }
 }
 </style>
+
+<script>
+// Assign index to each span for delay
+document.querySelectorAll('.wave-text span').forEach((el, i) => {
+  el.style.setProperty('--n', i);
+});
+</script>
         <div class="buttons">
           <a href="https://t.me/Gabriel_Mods_Channel" class="button" title="Telegram" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M9.036 16.572l-.376 3.94c.537 0 .768-.231 1.05-.508l2.526-2.375 5.244 3.828c.963.529 1.651.25 1.886-.89l3.42-16.13c.298-1.394-.504-1.94-1.404-1.612L1.188 9.117C-.155 9.615-.144 10.392.963 10.733l5.203 1.622L19.04 4.732c.475-.288.909-.13.553.158l-11.34 9.125z"/></svg>
