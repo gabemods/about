@@ -35,18 +35,32 @@
 <meta name="theme-color" content="#ffffff"/>
 
   <style>
-     @font-face {
+    /* Normal (Regular) font */
+@font-face {
   font-family: 'OneUISans';
-  src: url('https://raw.githubusercontent.com/gabemods/gabemods.github.io/main/assets/fonts/(Regular)%20One%20UI%20Sans.ttf') format('truetype');
+  src: url('assets/fonts/(Regular) One UI Sans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-h1 {
+
+/* Medium font */
+@font-face {
+  font-family: 'OneUISans';
+  src: url('assets/fonts/(Medium) One UI Sans.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+    /* Header (Medium weight) */
+h1, h2, h3 {
   font-family: 'OneUISans', sans-serif;
-  font-weight: 500;          /* Use 500 (Medium) or even try 600 if you load a bolder font */
-  font-size: 2.5rem;         /* Increase size (adjust as needed) */
-  letter-spacing: 0.3px;     /* Helps reduce the squashed look */
-  line-height: 1.2;          /* Improves vertical spacing */
+  font-weight: 500; /* Medium weight */
+  font-size: 2.5rem; /* Adjust size as needed */
+}
+
+/* Other text (Normal weight) */
+body, p, a, span {
+  font-family: 'OneUISans', sans-serif;
+  font-weight: normal; /* Normal weight */
 }
     html, body {
       margin: 0;
