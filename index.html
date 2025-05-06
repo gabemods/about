@@ -313,6 +313,12 @@ body.dark-mode .copyright-box {
   transform: scaleY(1.2); /* 1.2 = 20% taller */
   display: inline-block;  /* required for transform to work properly */
 }
+    .card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
   </style>
 </head>
 
@@ -323,10 +329,12 @@ body.dark-mode .copyright-box {
   <div class="scroll-container">
     <div class="page">
       <div class="card">
-        <a href="https://gabemods.github.io/Gabe-Mods-Website/">
-          <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
-        </a>
-        <h1>Gabe Mods</h1>
+        <div class="card-header">
+  <a href="https://gabemods.github.io/Gabe-Mods-Website/">
+    <img src="assets/images/IMG_7790.jpeg" alt="Gabe Mods Logo" class="logo" />
+  </a>
+  <h1>Gabe Mods</h1>
+</div>
         <p>I like to code websites and apps. I mainly use these programming languages: <strong>HTML, CSS and JavaScript. </strong>I also mod games and apps. Swipe right to find my projects. 
           <p> <em> Note: Those using a mouse, need to hold down the scroll wheel and swipe to navigate between cards.</em> </p>
         <div class="buttons">
