@@ -53,12 +53,15 @@
   h1 {
   font-family: 'OneUISans', sans-serif;
   font-weight: 500; /* Medium */
-  font-size: 3rem; /* Large, modern size */
-  line-height: 1.2; /* Balanced spacing */
-  letter-spacing: -0.5px; /* Tighter letter spacing */
-  margin-bottom: 0.5em;
-  color: var(--text-color); /* Use theme color variable */
-  text-wrap: balance; /* For better multi-line layout (supported in modern browsers) */
+  font-size: 3rem;
+  line-height: 1.3; /* Slightly more breathing room */
+  letter-spacing: -0.2px; /* Less tight */
+  margin-bottom: 0.6em;
+  color: var(--text-color);
+  text-wrap: balance;
+  display: inline-block; /* Needed for transform */
+  transform: scaleY(1.05); /* Slight vertical stretch */
+  transform-origin: bottom; /* Optional: anchors stretch from bottom */
 }
 /* Other text (Normal weight) */
 body, p, a, span {
