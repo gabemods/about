@@ -338,7 +338,7 @@ body.dark-mode .copyright-box {
 </div>
    <p>I like to code websites and apps. I mainly use these programming languages: <strong>HTML, CSS and JavaScript. </strong>I also mod games & apps. </p>
     
-        <p class="wave-text">
+       <p class="wave-text">
   Swipe right to find my projects (PC users need to hold down the scroll wheel and swipe to navigate pages.) →
 </p>
 
@@ -353,12 +353,78 @@ body.dark-mode .copyright-box {
 
   .wave-text span {
     display: inline-block;
-    animation: wave 1.5s infinite ease-in-out;
+    opacity: 0;
+    animation: wave 1.5s forwards;
+  }
+
+  .wave-text span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .wave-text span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .wave-text span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .wave-text span:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .wave-text span:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+  .wave-text span:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+  .wave-text span:nth-child(7) {
+    animation-delay: 0.6s;
+  }
+  .wave-text span:nth-child(8) {
+    animation-delay: 0.7s;
+  }
+  .wave-text span:nth-child(9) {
+    animation-delay: 0.8s;
+  }
+  .wave-text span:nth-child(10) {
+    animation-delay: 0.9s;
+  }
+  .wave-text span:nth-child(11) {
+    animation-delay: 1s;
+  }
+  .wave-text span:nth-child(12) {
+    animation-delay: 1.1s;
+  }
+  .wave-text span:nth-child(13) {
+    animation-delay: 1.2s;
+  }
+  .wave-text span:nth-child(14) {
+    animation-delay: 1.3s;
+  }
+  .wave-text span:nth-child(15) {
+    animation-delay: 1.4s;
+  }
+  .wave-text span:nth-child(16) {
+    animation-delay: 1.5s;
+  }
+  .wave-text span:nth-child(17) {
+    animation-delay: 1.6s;
+  }
+  .wave-text span:nth-child(18) {
+    animation-delay: 1.7s;
+  }
+  .wave-text span:nth-child(19) {
+    animation-delay: 1.8s;
+  }
+  .wave-text span:nth-child(20) {
+    animation-delay: 1.9s;
+  }
+  .wave-text span:nth-child(21) {
+    animation-delay: 2s;
   }
 
   @keyframes wave {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 1; transform: scale(1); }
   }
 </style>
 
