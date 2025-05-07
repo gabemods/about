@@ -221,7 +221,7 @@ body, p, a, span {
 
     .indicator-wrapper {
       position: fixed;
-      bottom: 35px;
+      bottom: calc(35px + env(safe-area-inset-bottom, 0px));
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0, 0, 0, 0.5);
@@ -256,7 +256,7 @@ body, p, a, span {
     }
     .copyright-box {
   position: fixed;
-  bottom: 0;
+    bottom: env(safe-area-inset-bottom, 0px);
   left: 50%;
   transform: translateX(-50%);
   margin: 0 auto;
