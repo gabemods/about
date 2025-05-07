@@ -522,5 +522,16 @@ body.dark-mode .copyright-box {
     window.addEventListener('orientationchange', fixHeight);
     fixHeight();
   </script>
+    <script>
+  document.addEventListener('wheel', function(e) {
+    if (e.deltaY !== 0) {
+      e.preventDefault(); // Stop vertical scroll
+      window.scrollBy({
+        left: e.deltaY, // Translate vertical scroll into horizontal
+        behavior: 'smooth'
+      });
+    }
+  }, { passive: false });
+</script>
 </body>
 </html>
