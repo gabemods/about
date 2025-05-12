@@ -98,6 +98,20 @@ body, p, a, span {
       align-items: center;
     }
 
+    @keyframes cardBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+}
     .card {
       background: rgba(0, 0, 0, 0.5);
       border-radius: 25px;
@@ -110,7 +124,9 @@ body, p, a, span {
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease; /* <--- add this */
     }
-
+    .card.animate-in {
+  animation: cardBounceIn 0.6s ease forwards;
+}
     @media (max-width: 768px) and (orientation: landscape) {
       .card {
         transform: scale(0.75);
@@ -327,6 +343,26 @@ body.dark-mode .copyright-box {
   .copyright-box {
     bottom: 15px; /* raise it from 0px */
   }
+}
+    @keyframes fadeBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card h1,
+.card h2,
+.card h3, {
+  animation: fadeBounceIn 0.6s ease forwards;
 }
   </style>
 </head>
@@ -545,5 +581,36 @@ body.dark-mode .copyright-box {
       }
     });
   </script>
+  <script>
+  window.addEventListener('load', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, i) => {
+      setTimeout(() => {
+        card.classList.add('animate-in');
+      }, i * 100); // optional stagger
+    });
+  });
+</script>
+  <script>
+window.addEventListener("orientationchange", () => {
+  const cards = document.querySelectorAll('.card');
+  const texts = document.querySelectorAll('.card h1, .card h2, .card h3, .card p');
+
+  // Reset and re-trigger card animations
+  cards.forEach(card => {
+    card.style.animation = 'none';
+    card.offsetHeight; // Trigger reflow
+    card.style.animation = 'cardBounceIn 0.6s ease forwards';
+  });
+
+  // Reset and re-trigger text animations
+  texts.forEach((text, index) => {
+    text.style.animation = 'none';
+    text.offsetHeight; // Trigger reflow
+    text.style.animation = `fadeBounceIn 0.6s ease forwards`;
+    text.style.animationDelay = `${0.1 + index * 0.05}s`; // Slight stagger
+  });
+});
+</script>
 </body>
 </html>
