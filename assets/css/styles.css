@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'OneUISans';
-  src: url('assets/fonts/(Regular) One UI Sans.ttf') format('truetype');
+  src: url('../fonts/(Regular) One UI Sans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -8,7 +8,7 @@
 /* Medium font */
 @font-face {
   font-family: 'OneUISans';
-  src: url('assets/fonts/(Medium) One UI Sans.ttf') format('truetype');
+  src: url('../fonts/(Medium) One UI Sans.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
@@ -34,7 +34,7 @@ body, p, a, span {
       height: 100%;
       width: 100%;
       overflow: hidden;
-      background: url('assets/images/IMG_7787.jpeg') no-repeat center center fixed;
+      background: url('../images/IMG_7787.jpeg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'OneUISans', sans-serif;
       color: white;
