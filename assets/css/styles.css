@@ -1,0 +1,322 @@
+@font-face {
+  font-family: 'OneUISans';
+  src: url('assets/fonts/(Regular) One UI Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Medium font */
+@font-face {
+  font-family: 'OneUISans';
+  src: url('assets/fonts/(Medium) One UI Sans.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+  h1 {
+  font-family: 'OneUISans';
+  font-weight: 500; /* Medium */
+  font-size: 4rem;
+  line-height: 1.5; /* Slightly more breathing room */
+  margin-bottom: 1em;
+  color: var(--text-color);
+  text-wrap: balance;
+  transform: scaleY(1.1);
+  display: inline-block;
+}
+/* Other text (Normal weight) */
+body, p, a, span {
+  font-family: 'OneUISans', sans-serif;
+  font-weight: 400; /* Normal weight */
+}
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: url('assets/images/IMG_7787.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'OneUISans', sans-serif;
+      color: white;
+    }
+
+    .scroll-container {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      width: 100%;
+      height: 100dvh;
+    }
+
+    .page {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      width: 100%;
+      height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes cardBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+}
+    .card {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 25px;
+      padding: 24px 16px;
+      max-width: 280px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease; /* <--- add this */
+    }
+    .card.animate-in {
+  animation: cardBounceIn 0.6s ease forwards;
+}
+    @media (max-width: 768px) and (orientation: landscape) {
+      .card {
+        transform: scale(0.75);
+      }
+    }
+
+    .logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1px;
+      border: 3px solid #007aff;
+      transition: transform 0.2s ease;
+    }
+
+    .logo.clicked {
+      transform: scale(1.1);
+    }
+
+    .card h1 {
+      font-size: 24px;
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 15px;
+      margin: 6px 0 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button {
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .button svg, .button img {
+      width: 25px;
+      height: 25px;
+      fill: white;
+    }
+
+    .project-card {
+      display: flex; /* Make it a flex container again */
+      flex-direction: row; /* Align items in a row */
+      align-items: center; /* Vertically align items in the center */
+      gap: 12px;
+      padding: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+
+    .project-card:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .project-card img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .project-card-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px; /* Add some space between the logo and text */
+  justify-content: flex-start; /* Align items to the start of the container (top) */
+  padding-top: 0px; /* Add some padding at the top to move content down */
+}
+
+    .project-card span {
+      font-weight: bold;
+      margin-bottom: 1px; /* For the gap below the header */
+    }
+
+    .project-description {
+      color: grey;
+      font-size: smaller;
+      display: block;
+      margin-top: 1px; /* For the gap above the description */
+    }
+
+    .indicator-wrapper {
+      position: fixed;
+      bottom: calc(35px + env(safe-area-inset-bottom, 0px));
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      padding: 8px 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .indicators {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      opacity: 0.4;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    .copyright-box {
+  position: fixed;
+    bottom: env(safe-area-inset-bottom, 0px);
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  padding: 5px 10px;
+  height: 20px;
+  width: 100vw;
+  font-size: 12px;
+  color: grey;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  line-height: 20px;
+}
+
+/* Dark mode override */
+body.dark-mode .copyright-box {
+  color: white;
+  background: rgba(0, 0, 0, 0.2); /* transparent black */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+    .landscape-warning {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .landscape-warning {
+    display: flex;
+  }
+  .scroll-container {
+    display: none;
+  }
+}
+    
+    .project-card-info span {
+  font-family: 'OneUISans';
+  transform: scaleY(1.1);
+  display: inline-block;
+  font-weight: 410;
+}
+    .card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+    @media (min-width: 1024px) {
+  .indicator-wrapper {
+    bottom: 100px; /* raise it from 35px */
+  }
+
+  .copyright-box {
+    bottom: 15px; /* raise it from 0px */
+  }
+}
+    @keyframes fadeBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
