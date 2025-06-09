@@ -38,16 +38,15 @@
   window.addEventListener('orientationchange', fixHeight);
   fixHeight();
 
-  document.addEventListener('wheel', function (e) {
-    if (e.deltaY !== 0) {
-      e.preventDefault();
-      window.scrollBy({
-        left: e.deltaY,
-        behavior: 'smooth'
-      });
-    }
-  }, { passive: false });
+  document.querySelector('.scroll-container').addEventListener('wheel', function (e) {
+  e.preventDefault();
+  this.scrollBy({
+    left: e.deltaY,
+    behavior: 'smooth'
+  });
+}, { passive: false });
 
+    
   window.hideFullscreen = function () {
     if (overlay && fullscreenImg) {
       overlay.style.display = 'none';
