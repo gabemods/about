@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'OneUISans';
-  src: url('../fonts/(Regular) One UI Sans.ttf') format('truetype');
+  src: url('../fonts/OneUISans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -8,7 +8,7 @@
 /* Medium font */
 @font-face {
   font-family: 'OneUISans';
-  src: url('../fonts/(Medium) One UI Sans.ttf') format('truetype');
+  src: url('../fonts/OneUISans-Bold.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
