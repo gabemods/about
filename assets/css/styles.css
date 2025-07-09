@@ -12,7 +12,8 @@
   font-weight: 500;
   font-style: normal;
 }
-  h1 {
+
+h1 {
   font-family: 'OneUISans';
   font-weight: 500; /* Medium */
   font-size: 4rem;
@@ -23,44 +24,49 @@
   transform: scaleY(1.1);
   display: inline-block;
 }
+
 /* Other text (Normal weight) */
 body, p, a, span {
   font-family: 'OneUISans', sans-serif;
   font-weight: 400; /* Normal weight */
 }
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: url('../images/IMG_7787.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'OneUISans', sans-serif;
-      color: white;
-    }
 
-    .scroll-container {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      width: 100%;
-      height: 100dvh;
-    }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  /* Keep overflow-x hidden on html/body to prevent overall document scrollbar */
+  overflow-x: hidden;
+  overflow-y: hidden; /* Keep vertical hidden for your page snapping */
+  background: url('../images/IMG_7787.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'OneUISans', sans-serif;
+  color: white;
+}
 
-    .page {
-      scroll-snap-align: center;
-      flex-shrink: 0;
-      width: 100%;
-      height: 100dvh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.scroll-container {
+  display: flex;
+  flex-direction: row;
+  /* CRITICAL FIX: Set overflow-x back to auto to enable horizontal scrolling/swiping */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100dvh;
+}
 
-    @keyframes cardBounceIn {
+.page {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes cardBounceIn {
   0% {
     opacity: 0;
     transform: scale(0.8);
@@ -74,167 +80,210 @@ body, p, a, span {
     transform: scale(1.0);
   }
 }
-    .card {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 25px;
-      padding: 24px 16px;
-      max-width: 280px;
-      text-align: center;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease; /* <--- add this */
-    }
-    .card.animate-in {
-  animation: cardBounceIn 0.6s ease forwards;
-}
-    @media (max-width: 768px) and (orientation: landscape) {
-      .card {
-        transform: scale(0.75);
-      }
-    }
 
-    .logo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1px;
-      border: 3px solid #007aff;
-      transition: transform 0.2s ease;
-    }
-
-    .logo.clicked {
-      transform: scale(1.1);
-    }
-
-    .card h1 {
-      font-size: 24px;
-      margin: 10px 0 5px;
-    }
-
-    .card p {
-      font-size: 15px;
-      margin: 6px 0 20px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .button {
-      width: 45px;
-      height: 45px;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .button:hover {
-      transform: scale(1.1);
-    }
-
-    .button svg, .button img {
-      width: 25px;
-      height: 25px;
-      fill: white;
-    }
-
-    .project-card {
-      display: flex; /* Make it a flex container again */
-      flex-direction: row; /* Align items in a row */
-      align-items: center; /* Vertically align items in the center */
-      gap: 12px;
-      padding: 12px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: background 0.3s;
-      text-decoration: none;
-      color: white;
-    }
-
-    .project-card:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .project-card img {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-
-    .project-card-info {
+.card {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  padding: 24px 16px;
+  max-width: 280px;
+  max-height: 60vh; /* Increased slightly to give more room for content */
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  
+  /* Make card a flex container to manage its children's vertical space */
   display: flex;
   flex-direction: column;
-  margin-left: 0px; /* Add some space between the logo and text */
-  justify-content: flex-start; /* Align items to the start of the container (top) */
-  padding-top: 0px; /* Add some padding at the top to move content down */
 }
 
-    .project-card span {
-      font-weight: bold;
-      margin-bottom: 1px; /* For the gap below the header */
-    }
+.card.animate-in {
+  animation: cardBounceIn 0.6s ease forwards;
+}
 
-    .project-description {
-      color: grey;
-      font-size: smaller;
-      display: block;
-      margin-top: 1px; /* For the gap above the description */
-    }
+@media (max-width: 768px) and (orientation: landscape) {
+  .card {
+    transform: scale(0.75);
+  }
+}
 
-    .indicator-wrapper {
-      position: fixed;
-      bottom: calc(35px + env(safe-area-inset-bottom, 0px));
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 20px;
-      padding: 8px 16px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
+.logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1px;
+  border: 3px solid #007aff;
+  transition: transform 0.2s ease;
+}
 
-    .indicators {
-      display: flex;
-      gap: 10px;
-    }
+.logo.clicked {
+  transform: scale(1.1);
+}
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      opacity: 0.4;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-    }
+.card h1 {
+  font-size: 24px;
+  margin: 10px 0 5px;
+  flex-shrink: 0; /* Prevent heading from shrinking */
+}
 
-    .dot.active {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-    .copyright-box {
+.card p {
+  font-size: 15px;
+  margin: 6px 0 20px;
+  flex-shrink: 0; /* Prevent paragraph from shrinking */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.button {
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button svg, .button img {
+  width: 25px;
+  height: 25px;
+  fill: white;
+}
+
+/* --- Project Cards Container (within the .card) --- */
+.projects-container {
+  /* This is the key for vertical scrolling within the card */
+  flex-grow: 1; /* Allows this container to take up all remaining vertical space */
+  overflow-y: auto; /* Enables vertical scrolling when content overflows */
+  min-height: 0; /* Very important: allows flex item to shrink below its content size */
+  
+  /* Padding for the scrollable area itself */
+  padding-right: 8px; /* Prevents scrollbar from touching content */
+
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to next row */
+  gap: 15px; /* Spacing between project cards */
+  align-items: flex-start; /* Align cards to the top of the container */
+  justify-content: flex-start; /* Align cards to the start of the row */
+  
+  margin-top: 20px; 
+}
+
+/* --- Individual Project Card Styling --- */
+.projects-container a.project-card {
+  display: flex;
+  flex-direction: row; /* Image and text side-by-side */
+  align-items: center; /* Vertically center items */
+  gap: 12px;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+  color: white; /* Ensure text remains white */
+  box-sizing: border-box; /* Include padding/border in width/height */
+
+  flex: 1 1 100%; /* Make each project card take full available width */
+  max-width: 100%; /* Ensure it doesn't grow past 100% of its parent */
+  
+  transform: none; /* Remove any transforms if they were causing issues with scrolling */
+}
+
+.projects-container a.project-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.project-card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows info to take up available space */
+  text-align: left; /* Aligns text to the left */
+}
+
+.project-card-info span {
+  font-family: 'OneUISans';
+  transform: scaleY(1.1);
+  display: inline-block;
+  font-weight: 410;
+  color: white; /* Ensure title is white */
+  margin-bottom: 1px; /* Small gap below title */
+  text-align: left; /* Ensure title is left-aligned */
+}
+
+.project-description {
+  color: grey;
+  font-size: smaller;
+  display: block;
+  margin-top: 1px; /* Small gap above description */
+  text-align: left; /* Ensure description is left-aligned */
+}
+
+/* --- Indicator and Copyright Box (No Changes) --- */
+.indicator-wrapper {
   position: fixed;
-    bottom: env(safe-area-inset-bottom, 0px);
+  bottom: calc(35px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 8px 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  opacity: 0.4;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.copyright-box {
+  position: fixed;
+  bottom: env(safe-area-inset-bottom, 0px);
   left: 50%;
   transform: translateX(-50%);
   margin: 0 auto;
@@ -256,10 +305,11 @@ body, p, a, span {
 /* Dark mode override */
 body.dark-mode .copyright-box {
   color: white;
-  background: rgba(0, 0, 0, 0.2); /* transparent black */
+  background: rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
 }
-    .landscape-warning {
+
+.landscape-warning {
   display: none;
   position: fixed;
   top: 0; left: 0;
@@ -283,30 +333,26 @@ body.dark-mode .copyright-box {
     display: none;
   }
 }
-    
-    .project-card-info span {
-  font-family: 'OneUISans';
-  transform: scaleY(1.1);
-  display: inline-block;
-  font-weight: 410;
-}
-    .card-header {
+
+.card-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
 }
-    @media (min-width: 1024px) {
+
+@media (min-width: 1024px) {
   .indicator-wrapper {
-    bottom: 100px; /* raise it from 35px */
+    bottom: 100px;
   }
 
   .copyright-box {
-    bottom: 15px; /* raise it from 0px */
+    bottom: 15px;
   }
 }
-    @keyframes fadeBounceIn {
+
+@keyframes fadeBounceIn {
   0% {
     opacity: 0;
     transform: translateY(20px) scale(0.95);
@@ -319,4 +365,47 @@ body.dark-mode .copyright-box {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+/* Wave text animation specific styles (from your original HTML) */
+.wave-text {
+  color: grey;
+  font-size: 20px;
+  font-family: 'OneUISans', sans-serif;
+  line-height: 1.6;
+  display: inline;
+}
+
+.wave-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: wave 1.5s forwards;
+}
+
+.wave-text span:nth-child(1) { animation-delay: 0s; }
+.wave-text span:nth-child(2) { animation-delay: 0.1s; }
+.wave-text span:nth-child(3) { animation-delay: 0.2s; }
+.wave-text span:nth-child(4) { animation-delay: 0.3s; }
+.wave-text span:nth-child(5) { animation-delay: 0.4s; }
+.wave-text span:nth-child(6) { animation-delay: 0.5s; }
+.wave-text span:nth-child(7) { animation-delay: 0.6s; }
+.wave-text span:nth-child(8) { animation-delay: 0.7s; }
+.wave-text span:nth-child(9) { animation-delay: 0.8s; }
+.wave-text span:nth-child(10) { animation-delay: 0.9s; }
+.wave-text span:nth-child(11) { animation-delay: 1s; }
+.wave-text span:nth-child(12) { animation-delay: 1.1s; }
+.wave-text span:nth-child(13) { animation-delay: 1.2s; }
+.wave-text span:nth-child(14) { animation-delay: 1.3s; }
+.wave-text span:nth-child(15) { animation-delay: 1.4s; }
+.wave-text span:nth-child(16) { animation-delay: 1.5s; }
+.wave-text span:nth-child(17) { animation-delay: 1.6s; }
+.wave-text span:nth-child(18) { animation-delay: 1.7s; }
+.wave-text span:nth-child(19) { animation-delay: 1.8s; }
+.wave-text span:nth-child(20) { animation-delay: 1.9s; }
+.wave-text span:nth-child(21) { animation-delay: 2s; }
+
+@keyframes wave {
+  0% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 1; transform: scale(1); }
 }
