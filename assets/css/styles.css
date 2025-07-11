@@ -5,7 +5,6 @@
   font-style: normal;
 }
 
-/* Medium font */
 @font-face {
   font-family: 'OneUISans';
   src: url('../fonts/OneUISans-Bold.ttf') format('truetype');
@@ -15,9 +14,9 @@
 
 h1 {
   font-family: 'OneUISans';
-  font-weight: 500; /* Medium */
+  font-weight: 500; 
   font-size: 4rem;
-  line-height: 1.5; /* Slightly more breathing room */
+  line-height: 1.5; 
   margin-bottom: 1em;
   color: var(--text-color);
   text-wrap: balance;
@@ -25,10 +24,9 @@ h1 {
   display: inline-block;
 }
 
-/* Other text (Normal weight) */
 body, p, a, span {
   font-family: 'OneUISans', sans-serif;
-  font-weight: 400; /* Normal weight */
+  font-weight: 400; 
 }
 
 html, body {
@@ -36,9 +34,9 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  /* Keep overflow-x hidden on html/body to prevent overall document scrollbar */
+
   overflow-x: hidden;
-  overflow-y: hidden; /* Keep vertical hidden for your page snapping */
+  overflow-y: hidden; 
   background: url('../images/IMG_7787.jpeg') no-repeat center center fixed;
   background-size: cover;
   font-family: 'OneUISans', sans-serif;
@@ -48,7 +46,7 @@ html, body {
 .scroll-container {
   display: flex;
   flex-direction: row;
-  /* CRITICAL FIX: Set overflow-x back to auto to enable horizontal scrolling/swiping */
+
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -86,15 +84,12 @@ html, body {
   border-radius: 25px;
   padding: 24px 16px;
   max-width: 280px;
-  max-height: 60vh; /* Increased slightly to give more room for content */
   text-align: center;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease;
-  
-  /* Make card a flex container to manage its children's vertical space */
   display: flex;
   flex-direction: column;
 }
@@ -126,13 +121,13 @@ html, body {
 .card h1 {
   font-size: 24px;
   margin: 10px 0 5px;
-  flex-shrink: 0; /* Prevent heading from shrinking */
+  flex-shrink: 0; 
 }
 
 .card p {
   font-size: 15px;
   margin: 6px 0 20px;
-  flex-shrink: 0; /* Prevent paragraph from shrinking */
+  flex-shrink: 0; 
 }
 
 .buttons {
@@ -140,7 +135,7 @@ html, body {
   justify-content: center;
   gap: 15px;
   margin-top: 20px;
-  flex-shrink: 0; /* Prevent buttons from shrinking */
+  flex-shrink: 0; 
 }
 
 .button {
@@ -168,30 +163,27 @@ html, body {
   fill: white;
 }
 
-/* --- Project Cards Container (within the .card) --- */
 .projects-container {
-  /* This is the key for vertical scrolling within the card */
-  flex-grow: 1; /* Allows this container to take up all remaining vertical space */
-  overflow-y: auto; /* Enables vertical scrolling when content overflows */
-  min-height: 0; /* Very important: allows flex item to shrink below its content size */
-  
-  /* Padding for the scrollable area itself */
-  padding-right: 8px; /* Prevents scrollbar from touching content */
+  max-height: 40vh;
+  flex-grow: 1; 
+  overflow-y: auto; 
+  min-height: 0; 
+
+  padding-right: 8px; 
 
   display: flex;
-  flex-wrap: wrap; /* Allows cards to wrap to next row */
-  gap: 15px; /* Spacing between project cards */
-  align-items: flex-start; /* Align cards to the top of the container */
-  justify-content: flex-start; /* Align cards to the start of the row */
-  
+  flex-wrap: wrap; 
+  gap: 15px; 
+  align-items: flex-start; 
+  justify-content: flex-start; 
+
   margin-top: 20px; 
 }
 
-/* --- Individual Project Card Styling --- */
 .projects-container a.project-card {
   display: flex;
-  flex-direction: row; /* Image and text side-by-side */
-  align-items: center; /* Vertically center items */
+  flex-direction: row; 
+  align-items: center; 
   gap: 12px;
   padding: 12px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -199,13 +191,13 @@ html, body {
   cursor: pointer;
   transition: background 0.3s;
   text-decoration: none;
-  color: white; /* Ensure text remains white */
-  box-sizing: border-box; /* Include padding/border in width/height */
+  color: white; 
+  box-sizing: border-box; 
 
-  flex: 1 1 100%; /* Make each project card take full available width */
-  max-width: 100%; /* Ensure it doesn't grow past 100% of its parent */
-  
-  transform: none; /* Remove any transforms if they were causing issues with scrolling */
+  flex: 1 1 100%; 
+  max-width: 100%; 
+
+  transform: none; 
 }
 
 .projects-container a.project-card:hover {
@@ -216,14 +208,14 @@ html, body {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .project-card-info {
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allows info to take up available space */
-  text-align: left; /* Aligns text to the left */
+  flex-grow: 1; 
+  text-align: left; 
 }
 
 .project-card-info span {
@@ -231,20 +223,27 @@ html, body {
   transform: scaleY(1.1);
   display: inline-block;
   font-weight: 410;
-  color: white; /* Ensure title is white */
-  margin-bottom: 1px; /* Small gap below title */
-  text-align: left; /* Ensure title is left-aligned */
+  color: white; 
+  margin-bottom: 1px; 
+  text-align: left; 
 }
 
 .project-description {
   color: grey;
-  font-size: smaller;
+  font-size: 2em;
   display: block;
-  margin-top: 1px; /* Small gap above description */
-  text-align: left; /* Ensure description is left-aligned */
+  margin-top: 1px; 
+  text-align: left; 
 }
 
-/* --- Indicator and Copyright Box (No Changes) --- */
+.project-card-info .project-description {
+  color: grey;
+  font-size: 15px;
+  display: block;
+  margin-top: 1px;
+  text-align: left;
+}
+
 .indicator-wrapper {
   position: fixed;
   bottom: calc(35px + env(safe-area-inset-bottom, 0px));
@@ -302,7 +301,6 @@ html, body {
   line-height: 20px;
 }
 
-/* Dark mode override */
 body.dark-mode .copyright-box {
   color: white;
   background: rgba(0, 0, 0, 0.2);
@@ -367,7 +365,6 @@ body.dark-mode .copyright-box {
   }
 }
 
-/* Wave text animation specific styles (from your original HTML) */
 .wave-text {
   color: grey;
   font-size: 20px;
