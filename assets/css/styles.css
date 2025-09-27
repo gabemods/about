@@ -10,6 +10,9 @@
   --accent: #87CEEB;
   --hero-accent: rgba(0,0,0,0.08);
   --discontinued-color: #6c757d;
+  --social-button-bg: #222;
+  --social-icon-fill: #eaeaea;
+  --social-button-border: #aaa;
 }
 
 body.dark {
@@ -24,6 +27,9 @@ body.dark {
   --accent: #87CEEB;
   --hero-accent: rgba(0,0,0,0.3);
   --discontinued-color: #999;
+  --social-button-bg: #222;
+  --social-icon-fill: var(--text);
+  --social-button-border: rgba(255, 255, 255, 0.2);
 }
 
 *,
@@ -176,6 +182,41 @@ img {
 
 .btn:hover {
   opacity: 0.85;
+}
+
+.buttons {
+  max-width: 400px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-shrink: 0; 
+}
+
+.button {
+  width: 45px; 
+  height: 45px;
+  background: var(--social-button-bg);
+  border: 1px solid var(--social-button-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  will-change: transform;
+  transition: transform 0.2s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button svg, .button img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: var(--social-icon-fill);
+  transition: fill 0.2s;
 }
 
 .projects-section {
