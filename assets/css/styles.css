@@ -278,10 +278,6 @@ img {
     padding: 0 0.5rem;
 }
 
-.projects-section h2 {
-    /* Overridden by .section-title above */
-}
-
 .projects-row {
   display: flex;
   flex-wrap: nowrap;
@@ -378,7 +374,7 @@ img {
 
   .featured-project-card {
     display: flex;
-    flex-direction: center;
+    flex-direction: row;
     align-items: flex-start;
     padding: 1.5rem;
     gap: 2rem;
@@ -390,8 +386,18 @@ img {
     aspect-ratio: unset;
     object-fit: contain;
     border-radius: 10px;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
+    margin-right: 2rem;
     display: block;
+    flex-shrink: 0;
+  }
+
+  .featured-project-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .projects-section {
@@ -425,7 +431,7 @@ img {
   
   .featured-project-card {
     display: flex;
-    flex-direction: center;
+    flex-direction: row;
     align-items: flex-start;
     padding: 1.5rem;
     gap: 2rem;
@@ -437,8 +443,18 @@ img {
     aspect-ratio: unset;
     object-fit: contain;
     border-radius: 10px;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
+    margin-right: 2rem;
     display: block;
+    flex-shrink: 0;
+  }
+
+  .featured-project-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .projects-row {
