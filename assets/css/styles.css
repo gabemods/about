@@ -97,6 +97,7 @@ img {
 
 .lead, .verse, .meta, .featured-project-info p, .project-card p {
   font-size: 1rem;
+  margin-bottom: 1rem; 
 }
 
 .verse {
@@ -110,8 +111,8 @@ img {
 }
 
 .btn, .btn-centered, .btn-secondary {
-  display: inline-block;
-  padding: 0.7rem 1.8rem;
+  display: inline-block; 
+  padding: 0.7rem 1.8rem; 
   border-radius: 30px;
   font-weight: 500;
   text-align: center;
@@ -129,7 +130,7 @@ img {
 }
 
 .btn-centered-wrapper {
-  text-align: center;
+  text-align: left;
 }
 
 .buttons {
@@ -172,6 +173,9 @@ img {
   padding: 1rem 0.5rem;
 }
 
+/* * MOBILE/DEFAULT ALIGNMENT: 
+ * Section titles are now left-aligned.
+ */
 .section-title,
 .featured-project-container h3,
 .projects-section h2 {
@@ -179,7 +183,8 @@ img {
   color: var(--accent);
   margin-bottom: 0.8rem;
   font-weight: 700;
-  text-align: center;
+  text-align: left; /* Aligned left for mobile */
+  padding-left: 0.5rem; /* Matches .content side padding */
 }
 
 .featured-project-container {
@@ -194,7 +199,7 @@ img {
   box-shadow: 0 2px 8px var(--hero-accent);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; 
   gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
@@ -208,10 +213,15 @@ img {
   border-radius: 10px;
   margin-bottom: 0.8rem;
   display: block;
+  margin-left: 0; 
+  margin-right: 0; 
 }
 
 .featured-project-info {
   width: 100%;
+  display: flex; 
+  flex-direction: column;
+  text-align: left; 
 }
 
 .featured-project-info h4 {
@@ -226,12 +236,16 @@ img {
   margin-bottom: 1rem;
 }
 
+.featured-project-text-wrapper { 
+    flex-grow: 1; 
+}
+
 .featured-project-card .btn {
   max-width: 220px;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 0.5rem;
-  align-self: flex-start;
+  align-self: flex-start; 
+  margin-top: 1rem; 
 }
 
 .projects-section {
@@ -258,9 +272,10 @@ img {
   border: 1px solid var(--border);
   box-shadow: 0 2px 8px var(--hero-accent);
   scroll-snap-align: start;
-  display: flex;
+  display: flex; 
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
 }
 
 .project-card img {
@@ -273,11 +288,25 @@ img {
   display: block;
   aspect-ratio: unset;
   background: #f0f0f0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .project-card h3 {
   margin-bottom: 0.4rem;
   font-size: 1.1rem;
+}
+
+.project-card-content {
+  flex-grow: 1;
+  padding-bottom: 0.5rem; 
+}
+
+.project-card .btn { 
+    margin-top: auto; 
+    width: 100%; 
+    max-width: 220px;
+    align-self: flex-start; 
 }
 
 .project-discontinued h3, .project-discontinued p {
@@ -287,7 +316,7 @@ img {
 .footer {
   text-align: center;
   padding: 1rem;
-  border-top: 1px solid var(--border);
+  /* Removed border-top line to eliminate the bottom page border */
   font-size: 0.8rem;
   background: var(--footer-bg);
   transition: background 0.2s;
@@ -295,6 +324,16 @@ img {
 
 /* --- Responsive adjustments --- */
 @media (min-width: 600px) {
+  /* * TABLET/DESKTOP ALIGNMENT: 
+   * Titles are reverted back to center alignment. 
+   */
+  .section-title,
+  .featured-project-container h3,
+  .projects-section h2 {
+    text-align: center;
+    padding-left: 0;
+  }
+  
   .hero-card {
     max-width: 600px;
     padding: 2rem;
@@ -325,7 +364,6 @@ img {
   .featured-project-card img {
     max-width: 250px;
     margin-bottom: 0;
-    margin-right: 2rem;
   }
   .featured-project-info {
     width: auto;
@@ -335,12 +373,14 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left;
+    text-align: left; 
   }
+
   .featured-project-card .btn {
     max-width: 220px;
     width: auto;
-    align-self: flex-start;
+    align-self: flex-start; 
+    margin-top: 1.5rem; 
   }
   .projects-row {
     display: grid;
@@ -353,12 +393,17 @@ img {
   .project-card {
     max-width: 100%;
     flex: unset;
-    align-items: flex-start;
+    text-align: left; 
   }
   .project-card img {
     max-width: 250px;
     margin-bottom: 0.6rem;
     aspect-ratio: unset;
+  }
+
+  .project-card .btn {
+    margin-top: 1.5rem; 
+    align-self: flex-start;
   }
 }
 
