@@ -62,6 +62,9 @@ img {
 }
 
 .hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 1.5rem 1rem;
 }
 
@@ -69,6 +72,7 @@ img {
   background: var(--card-bg);
   border-radius: 12px;
   padding: 1.5rem;
+  margin: 0 auto;
   position: relative;
   box-shadow: 0 4px 12px var(--hero-accent);
   border: 1px solid var(--border);
@@ -166,10 +170,15 @@ img {
   padding: 0 0.5rem 1.5rem;
 }
 
-.featured-project-container h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    color: var(--accent);
+/* --- Make all section titles the same size and style --- */
+.section-title,
+.featured-project-container h3,
+.projects-section h2 {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .featured-project-card {
@@ -178,12 +187,21 @@ img {
   padding: 1rem;
   border: 1px solid var(--border);
   box-shadow: 0 2px 8px var(--hero-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .featured-project-card img {
-  height: 150px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  aspect-ratio: unset;
+  object-fit: contain;
+  border-radius: 10px;
   margin-bottom: 0.8rem;
+  display: block;
 }
 
 .featured-project-info h4 {
@@ -261,26 +279,17 @@ img {
 }
 
 .projects-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-    color: var(--accent);
+    /* Overridden by .section-title above */
 }
 
 .projects-row {
   display: flex;
+  flex-wrap: nowrap;
   gap: 1rem;
-  overflow-x: auto; 
-  padding: 0.5rem 0; 
-  scroll-snap-type: x mandatory; 
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-}
-
-.projects-row::-webkit-scrollbar {
-  display: none;
-}
-.projects-row {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .project-card {
@@ -295,9 +304,13 @@ img {
 }
 
 .project-card img {
-  height: 150px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  aspect-ratio: unset;
+  object-fit: contain;
+  border-radius: 10px;
   margin-bottom: 0.6rem;
+  display: block;
 }
 
 .project-card h3 {
@@ -323,6 +336,7 @@ img {
   transition: background 0.2s;
 }
 
+/* --- Always stack hero card vertically, even on large screens --- */
 @media (min-width: 768px) {
   .hero {
     padding: 2rem 1.5rem;
@@ -334,22 +348,24 @@ img {
   }
 
   .hero-top {
-    flex-direction: row; 
-    text-align: left;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
   }
 
   .profile-img {
     width: 140px;
     height: 140px;
-    margin-right: 1.5rem;
+    margin-right: 0;
   }
 
   .hero-info {
-    text-align: left;
+    text-align: center !important;
   }
 
   .btn-centered-wrapper {
-    text-align: left; 
+    text-align: center; 
   }
 
   .content {
@@ -361,25 +377,23 @@ img {
   }
 
   .featured-project-card {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 1.5rem;
+    gap: 2rem;
   }
 
   .featured-project-card img {
-    flex-shrink: 0;
     width: 280px;
-    height: 160px;
-    margin-bottom: 0;
-  }
+    height: auto;
+    aspect-ratio: unset;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    display: block;
 
   .projects-section {
     padding: 0;
-  }
-
-  .projects-section h2 {
-    font-size: 1.6rem;
   }
 
   .project-card {
@@ -409,20 +423,33 @@ img {
 
   .featured-project-card img {
     width: 350px;
-    height: 200px;
-  }
-
-  .projects-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    height: auto;
+    aspect-ratio: unset;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    display: block;
   }
 
   .projects-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-auto-rows: 1fr;
     gap: 1.5rem;
+    overflow-x: unset;
+    padding: 0.5rem 0;
   }
-
   .project-card {
-    flex: 0 0 300px; 
+    max-width: 100%;
+    flex: unset;
+  }
+  .project-card img {
+    height: 180px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.6rem;
+    display: block;
   }
 
   .footer {
