@@ -120,6 +120,42 @@ img {
   text-align: center;
 }
 
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  color: #333;
+  background: none;
+}
+
+.project-card .btn,
+.project-card .btn-secondary {
+  flex-grow: 1;
+  width: auto;
+  margin-top: 10px;
+  margin-left: 0;
+}
+
+.project-card .button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.featured-project-info .button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
 .content {
   max-width: 1200px;
   margin: 0 auto;
