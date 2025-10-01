@@ -74,10 +74,12 @@
     </section>
 
     <section class="projects-section">
-  <h2>My Active Projects</h2>
+  <h2>Projects</h2>
   
   <div class="scroller-container">
     
+    <button class="scroll-btn prev-btn" data-row="1">&lt;</button>
+    <button class="scroll-btn next-btn" data-row="1">&gt;</button>
     <div class="projects-row projects-row-1">
       <div class="scroller-inner">
         
@@ -201,6 +203,19 @@
   </div>
 </section>
   </main>
+
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close">&times;</button>
+    <div class="modal-logo"><img src="" alt="Project Logo"></div>
+    <h3 class="modal-title"></h3>
+    <p class="modal-description"></p>
+    <div class="modal-buttons">
+      <a href="#" target="_blank" class="btn modal-website">Open Website</a>
+      <a href="#" target="_blank" class="btn modal-github">Open GitHub</a>
+    </div>
+  </div>
+</div>
 
   <footer class="footer">
   <p>© <span id="year"></span> Gabriel Longshaw. All rights reserved.</p>

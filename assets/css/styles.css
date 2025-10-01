@@ -13,6 +13,9 @@
   --social-button-bg: #222;
   --social-icon-fill: #eaeaea;
   --social-button-border: #aaa;
+  --modal-bg: #fff;
+  --modal-text: #000;
+  --overlay-bg: rgba(0, 0, 0, 0.6);
 }
 
 body.dark {
@@ -30,6 +33,9 @@ body.dark {
   --social-button-bg: #222;
   --social-icon-fill: var(--text);
   --social-button-border: rgba(255, 255, 255, 0.2);
+  --modal-bg: #111;
+  --modal-text: #fff;
+  --overlay-bg: rgba(0, 0, 0, 0.8);
 }
 
 *,
@@ -250,7 +256,6 @@ img {
     transform: translateX(0);
   }
   to {
-
     transform: translateX(-50%);
   }
 }
@@ -271,6 +276,7 @@ img {
 }
 
 .scroller-container {
+  position: relative; 
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -285,42 +291,71 @@ img {
 
   width: 100vw; 
   margin-left: calc(50% - 50vw); 
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+.scroller-container::-webkit-scrollbar {
+    display: none; 
 }
 
 .projects-row {
   display: flex;
-
-  overflow-x: scroll; 
-  scroll-snap-type: x mandatory; 
   -webkit-overflow-scrolling: touch; 
-
   width: 100%;
-  padding-bottom: 10px; 
+  overflow: hidden; 
 }
 
 .scroller-inner {
   display: flex;
   gap: 1.5rem; 
   flex-shrink: 0;
-  min-width: 200%; 
-  transition: transform 0.5s ease; 
+  width: max-content;
+  will-change: transform;
+
+  animation-duration: 80s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .projects-row-1 .scroller-inner {
-  animation: scroll-right 80s linear infinite; 
+  animation-name: scroll-right; 
 }
 
 .projects-row-2 .scroller-inner {
-  animation: scroll-left 80s linear infinite; 
+  animation-name: scroll-left; 
 }
 
-.projects-row:hover .scroller-inner,
-.projects-row:active .scroller-inner {
-  animation-play-state: paused;
+.scroll-btn {
+    position: absolute;
+    top: 30%; 
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    background: var(--button);
+    color: var(--button-text);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+    display: none; 
 }
 
-.projects-row .project-card {
-    scroll-snap-align: start; 
+.scroll-btn:hover {
+    opacity: 1;
+    background: var(--accent);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
 }
 
 .project-card {
@@ -418,7 +453,71 @@ img {
   transition: background 0.2s;
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
 
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--modal-text);
+}
+
+.modal-logo {
+  display: flex;
+  justify-content: center;
+}
+.modal-logo img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.modal-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
 @media (min-width: 600px) {
 
@@ -481,13 +580,17 @@ img {
     grid-auto-rows: unset;
     gap: 1.5rem;
 
-    overflow-x: scroll; 
+    overflow: hidden; 
     padding: 0.5rem 0;
   }
 
   .project-card {
     max-width: unset;
     flex: 0 0 350px; 
+  }
+
+  .scroll-btn {
+      display: block; 
   }
 
   .project-card .btn {
