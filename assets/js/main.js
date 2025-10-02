@@ -197,7 +197,7 @@ function createGoBackButton(targetElement) {
 
         backBtn.addEventListener('click', () => {
              if (window.barba) {
-                 barba.go('./'); 
+                 barba.go('../'); 
              } else {
                  window.location.href = './';
              }
