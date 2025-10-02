@@ -16,6 +16,8 @@
   --modal-bg: #fff;
   --modal-text: #000;
   --overlay-bg: rgba(0, 0, 0, 0.6);
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--accent);
 }
 
 body.dark {
@@ -36,6 +38,8 @@ body.dark {
   --modal-bg: #111;
   --modal-text: #fff;
   --overlay-bg: rgba(0, 0, 0, 0.8);
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--accent);
 }
 
 *,
@@ -116,7 +120,7 @@ img {
   opacity: 0.8;
 }
 
-.btn, .btn-centered, .btn-secondary {
+.btn {
   display: inline-block; 
   padding: 0.7rem 1.8rem; 
   border-radius: 30px;
@@ -131,12 +135,32 @@ img {
   cursor: pointer;
 }
 
-.btn:hover, .btn-centered:hover, .btn-secondary:hover {
-  opacity: 0.85;
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.7rem 1.8rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-secondary:hover {
+  opacity: 0.8;
 }
 
 .btn-centered-wrapper {
   text-align: left;
+}
+
+.projects-footer-actions {
+    text-align: center; 
+    margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 .buttons {
@@ -262,6 +286,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
@@ -284,6 +309,10 @@ img {
   margin-left: calc(50% - 50vw);
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.projects-grid-view .scroller-container {
+    display: none;
 }
 
 .projects-row {
@@ -321,38 +350,6 @@ img {
   animation: scroll-right 100s linear infinite;
 }
 
-.scroll-btn {
-    position: absolute;
-    top: 30%; 
-    transform: translateY(-50%);
-    z-index: 100;
-    width: 40px;
-    height: 40px;
-    background: var(--button);
-    color: var(--button-text);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    opacity: 0.8;
-    cursor: pointer;
-    transition: opacity 0.2s, background 0.2s;
-    display: none; 
-}
-
-.scroll-btn:hover {
-    opacity: 1;
-    background: var(--accent);
-}
-
-.prev-btn {
-    left: 20px;
-}
-
-.next-btn {
-    right: 20px;
-}
-
 .project-card {
   flex: 0 0 320px; 
   height: 140px; 
@@ -364,6 +361,7 @@ img {
   align-items: center; 
   gap: 1rem;
   overflow: hidden; 
+  cursor: pointer; 
 }
 
 .project-logo-wrapper {
@@ -406,7 +404,7 @@ img {
   font-size: 0.9rem;
   margin: 0; 
   color: var(--text);
-  opacity: 0.85;
+  opacity: 0.8;
   line-height: 1.2; 
   white-space: nowrap; 
   overflow: hidden;
@@ -426,7 +424,7 @@ img {
 }
 
 .project-card .btn:hover {
-    opacity: 0.85; 
+    opacity: 0.8; 
 }
 
 .project-discontinued .project-info {
@@ -438,6 +436,61 @@ img {
 .project-discontinued p {
     color: var(--discontinued-color);
     opacity: 0.9;
+}
+
+.projects-title {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    padding: 0;
+}
+
+.projects-grid .project-card {
+    width: 100%;
+    flex: 1 1 auto; 
+    height: auto; 
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+}
+
+.projects-grid .project-logo-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+}
+
+.projects-grid .project-info {
+    align-items: center;
+    height: auto;
+    gap: 0.5rem;
+}
+.projects-grid .project-card p {
+    white-space: normal; 
+    overflow: visible;
+    text-overflow: clip;
+    margin-bottom: 0.5rem;
+}
+.projects-grid .project-card .btn {
+    align-self: center;
+}
+
+.back-button {
+    margin-bottom: 0; 
+    width: fit-content; 
+    margin-left: auto;  
+    margin-right: auto;
+    font-weight: 500;
 }
 
 .footer {
@@ -457,7 +510,7 @@ img {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
   z-index: 999;
 }
 
@@ -476,7 +529,7 @@ img {
   text-align: center;
   transform: scale(0.8);
   opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   position: relative;
 }
 
@@ -584,12 +637,13 @@ img {
     flex: 0 0 350px; 
   }
 
-  .scroll-btn {
-      display: block; 
-  }
-
   .project-card .btn {
     align-self: flex-start;
+  }
+  
+  .projects-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
   }
 }
 
