@@ -120,7 +120,7 @@ img {
   opacity: 0.8;
 }
 
-.btn {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,11 +137,11 @@ img {
   cursor: pointer;
 }
 
-.btn:hover {
+.button:hover {
   opacity: 0.8;
 }
 
-.btn-featured {
+.button-featured {
   padding: 0.7rem 1.8rem;
   font-size: 0.95rem;
   max-width: 220px;
@@ -150,21 +150,22 @@ img {
   margin-top: 1rem;
 }
 
-.btn-secondary {
-  background: var(--btn-secondary-bg);
-  color: var(--btn-secondary-text);
-  border: none;
+.button-secondary {
+  background: var(--accent);
+  color: var(--button-text);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.7rem 1.8rem;
   transition: opacity 0.2s ease;
 }
 
-.btn-secondary:hover {
+.button-secondary:hover {
   opacity: 0.8;
 }
 
-.btn-centered-wrapper {
+.button-centered-wrapper {
   text-align: left;
 }
 
@@ -174,7 +175,7 @@ img {
     padding-bottom: 20px;
 }
 
-.buttons {
+.social-buttons {
   max-width: 400px;
   margin: 20px auto 0;
   display: flex;
@@ -183,7 +184,7 @@ img {
   flex-shrink: 0; 
 }
 
-.button {
+.social-button {
   width: 45px; 
   height: 45px;
   background: var(--social-button-bg);
@@ -197,11 +198,11 @@ img {
   transition: transform 0.2s;
 }
 
-.button:hover {
+.social-button:hover {
   transform: scale(1.1);
 }
 
-.button svg, .button img {
+.social-button svg, .social-button img {
   width: 24px;
   height: 24px;
   fill: var(--social-icon-fill);
@@ -415,7 +416,7 @@ img {
   text-overflow: ellipsis; 
 }
 
-.project-card .btn { 
+.project-card .button { 
   margin-top: 0.5rem;
   width: auto; 
   padding: 0.35rem 1rem;
@@ -427,7 +428,7 @@ img {
   font-weight: 500;
 }
 
-.project-card .btn:hover {
+.project-card .button:hover {
     opacity: 0.8; 
 }
 
@@ -444,7 +445,7 @@ img {
 
 .projects-title {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
     font-size: 2rem;
     color: var(--accent);
@@ -485,17 +486,31 @@ img {
     text-overflow: clip;
     margin-bottom: 0.5rem;
 }
-.projects-grid .project-card .btn {
+.projects-grid .project-card .button {
     align-self: center;
 }
 
 .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
     margin-bottom: 0; 
     width: fit-content; 
     margin-left: auto;  
     margin-right: auto;
     font-weight: 500;
+    color: var(--text);
+    opacity: 0.8;
 }
+
+.back-button svg {
+    width: 28px; 
+    height: 28px;
+    stroke: var(--text);
+}
+
 
 .footer {
   text-align: center;
@@ -619,7 +634,7 @@ img {
     text-align: left; 
   }
 
-  .featured-project-card .btn {
+  .featured-project-card .button {
     max-width: 220px;
     width: auto;
     align-self: flex-start; 
@@ -641,7 +656,7 @@ img {
     flex: 0 0 350px; 
   }
 
-  .project-card .btn {
+  .project-card .button {
     align-self: flex-start;
   }
 
