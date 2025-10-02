@@ -333,24 +333,25 @@ img {
   will-change: transform;
 }
 
-@keyframes scroll-left {
+@keyframes scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes scroll-right {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+.projects-row-1 .scroller-inner,
+.projects-row-2 .scroller-inner {
+  display: flex;
+  animation: scroll 100s linear infinite;
 }
 
 .projects-row-1 .scroller-inner {
-  display: flex;
-  animation: scroll-left 100s linear infinite;
+    animation-direction: normal;
+    transform: translateX(0); 
 }
 
 .projects-row-2 .scroller-inner {
-  display: flex;
-  animation: scroll-right 100s linear infinite;
+    animation-direction: reverse;
+    transform: translateX(-50%);
 }
 
 .project-card {
@@ -643,7 +644,7 @@ img {
   .project-card .btn {
     align-self: flex-start;
   }
-  
+
   .projects-grid {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
