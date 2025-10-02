@@ -3,13 +3,21 @@ const body = document.body;
 function duplicateScrollerContent() {
   document.querySelectorAll('.projects-row').forEach(row => {
     const inner = row.querySelector('.scroller-inner');
-    if (!inner || inner.dataset.cloned) return;
-    
-    inner.innerHTML += inner.innerHTML;
-    inner.dataset.cloned = "true";
+    if (!inner) return;
+
+    const original = inner.querySelectorAll('.project-card');
+    const originalHTML = Array.from(original).map(el => el.outerHTML).join('');
+
+    inner.innerHTML = '';
+    let filler = '';
+    do {
+      filler += originalHTML;
+      inner.innerHTML = filler;
+    } while (inner.scrollWidth < window.innerWidth * 2);
   });
 }
 
+window.addEventListener('resize', duplicateScrollerContent);
 duplicateScrollerContent();
 
 function applySystemTheme(e) {
