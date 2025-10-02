@@ -3,12 +3,14 @@ const body = document.body;
 function duplicateScrollerContent() {
   document.querySelectorAll('.projects-row').forEach(row => {
     const inner = row.querySelector('.scroller-inner');
+    if (!inner || inner.dataset.cloned) return;
     
-    if (inner) {
-      inner.innerHTML += inner.innerHTML;
-    }
+    inner.innerHTML += inner.innerHTML;
+    inner.dataset.cloned = "true";
   });
 }
+
+duplicateScrollerContent();
 
 function applySystemTheme(e) {
   if (e.matches) body.classList.add('dark');
@@ -107,5 +109,30 @@ document.querySelectorAll(".project-card").forEach(card => {
     }
     
     modal.classList.add("active");
+  });
+});
+
+function pauseAllScrollers() {
+  document.querySelectorAll(".scroller-inner").forEach(inner => {
+    inner.style.animationPlayState = "paused";
+  });
+}
+
+function resumeAllScrollers() {
+  document.querySelectorAll(".scroller-inner").forEach(inner => {
+    inner.style.animationPlayState = "running";
+  });
+}
+
+modalClose.addEventListener("click", () => {
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+  resumeAllScrollers();
+});
+
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.body.style.overflow = "hidden";
+    pauseAllScrollers();
   });
 });
