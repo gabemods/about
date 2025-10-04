@@ -1,16 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
 :root {
   --bg: #ffffff;
   --footer-bg: #f8f8f8;
@@ -337,35 +324,32 @@ img {
   -webkit-overflow-scrolling: touch; 
   width: 100%;
   overflow: hidden; 
+  white-space: nowrap;
 }
 
 .scroller-inner {
   display: flex;
   gap: 1.5rem;
   flex-shrink: 0;
-  width: max-content;
   will-change: transform;
 }
 
-@keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.projects-row-1 .scroller-inner,
-.projects-row-2 .scroller-inner {
-  display: flex;
-  animation: scroll 100s linear infinite;
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
 }
 
 .projects-row-1 .scroller-inner {
-    animation-direction: normal;
-    transform: translateX(0); 
+  animation: scrollLeft 30s linear infinite;
 }
 
 .projects-row-2 .scroller-inner {
-    animation-direction: reverse;
-    transform: translateX(-50%);
+  animation: scrollRight 30s linear infinite;
 }
 
 .project-card {
