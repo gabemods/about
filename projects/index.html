@@ -152,32 +152,17 @@
     <p class="meta">Romans 8:28 NKJV</p>
   </footer>
   
-<script>
-  (function() {
-    const header = document.getElementById('oneuiHeader');
-    const threshold = 90; // px of scroll for full fade; tweak to taste
-    let ticking = false;
-    
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const y = window.scrollY || window.pageYOffset || 0;
-          const t = Math.max(0, Math.min(1, y / threshold));
-          header.style.setProperty('--t', t.toFixed(3));
-          // add class for elevated shadow once slightly scrolled (optional)
-          if (t > 0.02) header.classList.add('scrolled');
-          else header.classList.remove('scrolled');
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
-    
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('load', onScroll);
-    window.addEventListener('resize', onScroll);
-  })();
-</script>
+   <script>
+     const header = document.getElementById("oneuiHeader");
+     
+     window.addEventListener("scroll", () => {
+       if (window.scrollY > 40) {
+         header.classList.add("scrolled");
+       } else {
+         header.classList.remove("scrolled");
+       }
+     });
+   </script>
   <script src="https://unpkg.com/@barba/core"></script> 
   <script src="../assets/js/main.js"></script>
 </body>
