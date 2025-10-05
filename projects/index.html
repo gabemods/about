@@ -15,15 +15,20 @@
         
         <main class="content">
             
-            <div class="projects-header">
-                <h1 class="projects-title">All Projects</h1>
-                <a href="../" class="back-button" aria-label="Go Back">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                    Back
-                </a>
-            </div>
+<header class="oneui-header" id="oneuiHeader">
+  <div class="oneui-topbar" aria-hidden="true">
+    <a href="../" class="oneui-back" aria-label="Go Back">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </a>
+    <h1 class="oneui-title-small">All Projects</h1>
+  </div>
+  
+  <div class="oneui-large-title-wrapper" aria-hidden="false">
+    <h1 class="oneui-title-large">All Projects</h1>
+  </div>
+</header>
             
             <div class="projects-grid">
                 
@@ -146,6 +151,33 @@
     <p>© <span id="year"></span> Gabriel Longshaw. All rights reserved.</p>
     <p class="meta">Romans 8:28 NKJV</p>
   </footer>
+  
+<script>
+  (function() {
+    const header = document.getElementById('oneuiHeader');
+    const threshold = 90; // px of scroll for full fade; tweak to taste
+    let ticking = false;
+    
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY || window.pageYOffset || 0;
+          const t = Math.max(0, Math.min(1, y / threshold));
+          header.style.setProperty('--t', t.toFixed(3));
+          // add class for elevated shadow once slightly scrolled (optional)
+          if (t > 0.02) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', onScroll);
+    window.addEventListener('resize', onScroll);
+  })();
+</script>
   <script src="https://unpkg.com/@barba/core"></script> 
   <script src="../assets/js/main.js"></script>
 </body>

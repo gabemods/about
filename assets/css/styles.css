@@ -583,6 +583,68 @@ img {
   gap: 1rem;
 }
 
+.oneui-header {
+  position: relative;
+  z-index: 100;
+  background: var(--bg);
+}
+
+.oneui-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: var(--bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 101;
+}
+
+.oneui-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  color: var(--text);
+}
+
+.oneui-title-small {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.oneui-large-title-wrapper {
+  padding: 60px 24px;
+  text-align: center;
+  transition: opacity 0.2s ease, transform 0.s ease;
+}
+
+.oneui-title-large {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.oneui-header.scrolled .oneui-large-title-wrapper {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.oneui-header.scrolled .oneui-topbar {
+  opacity: 1;
+}
+
 @media (min-width: 600px) {
 
   .section-title,
