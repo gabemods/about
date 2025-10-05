@@ -59,7 +59,6 @@ function duplicateScrollerContent() {
         
         inner.innerHTML = '';
         
-        // Duplicate 5 times
         for (let i = 0; i < 5; i++) {
             originalCards.forEach(card => inner.appendChild(card.cloneNode(true)));
         }
@@ -73,7 +72,7 @@ function duplicateScrollerContent() {
 }
 
 function setScrollerAnimation(inner, setWidth, reverse) {
-    const speed = 70; // px per second
+    const speed = 30;
     const durationSec = setWidth / speed;
     
     const keyframeName = 'scrollAnim' + Math.random().toString(36).substring(2, 7);
@@ -198,7 +197,7 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => duplicateScrollerContent(), 160);
+    resizeTimer = setTimeout(() => duplicateScrollerContent(), 2000);
 });
 
 if (yearSpan) {

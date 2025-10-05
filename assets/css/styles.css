@@ -345,11 +345,11 @@ img {
 }
 
 .projects-row-1 .scroller-inner {
-  animation: scrollLeft 30s linear infinite;
+  animation: scrollLeft 100s linear infinite;
 }
 
 .projects-row-2 .scroller-inner {
-  animation: scrollRight 30s linear infinite;
+  animation: scrollRight 100s linear infinite;
 }
 
 .project-card {
