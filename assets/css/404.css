@@ -1,5 +1,5 @@
 :root {
-  --bg: #ffffff;
+  --bg: #fff;
   --footer-bg: #f8f8f8;
   --card-bg: #fafafa;
   --button: #87CEEB;
@@ -65,7 +65,7 @@ h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--text);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 p {
@@ -88,7 +88,7 @@ p {
     transition: background-color 0.2s ease, padding 0.2s ease;
 }
 
-.button:active {
+.button:hover {
     padding: 0.8rem 1.8rem;
 }
 

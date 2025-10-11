@@ -1,5 +1,6 @@
 :root {
   --bg: #ffffff;
+  --header-bg: #fafafa;
   --footer-bg: #f8f8f8;
   --card-bg: #fafafa;
   --button: #87CEEB;
@@ -24,6 +25,7 @@ body.dark {
   --bg: #121212;
   --footer-bg: #1e1e1e;
   --card-bg: #1e1e1e;
+  --header-bg: #151515;
   --button: #87CEEB;
   --button-text: #fff;
   --text: #eaeaea;
@@ -508,13 +510,102 @@ img {
     stroke: var(--text);
 }
 
-
 .footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.8rem;
   background: var(--footer-bg);
-  transition: background 0.2s;
+  color: var(--text);
+  padding: 30px 20px 30px;
+  font-size: 15px;
+}
+
+.footer-top {
+  text-align: left;
+  max-width: 850px;
+  margin: 1rem auto 2rem;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.footer-description {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text);
+  text-align: left;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.footer-section {
+  text-align: left;
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.3rem;
+}
+
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.footer a:hover {
+  opacity: 1;
+}
+
+.no-contact {
+  font-style: italic;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.footer-bottom .name {
+  text-decoration: underline;
+}
+
+.footer .meta {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.5rem;
 }
 
 .modal {
@@ -599,8 +690,7 @@ img {
   align-items: center;
   gap: 8px;
   padding: 0 16px;
-  background: var(--bg);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  background: var(--header-bg);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 101;
@@ -742,9 +832,5 @@ img {
   }
   .featured-project-info {
     max-width: 600px;
-  }
-  .footer {
-    padding: 1.5rem;
-    font-size: 0.9rem;
   }
 }
