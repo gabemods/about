@@ -208,11 +208,8 @@ const pathPrefix = window.location.pathname.split('/').length > 2 ? '../' : './'
 
 const links = [
     { href: `${pathPrefix}`, text: 'Home' },
-    { href: `${pathPrefix}resources/`, text: 'Resources' },
-    { href: `${pathPrefix}charlie-kirk/`, text: 'Charlie Kirk' },
-    { href: `${pathPrefix}billy-graham/`, text: 'Billy Graham' },
-    { href: `${pathPrefix}cliffe-and-stuart-knechtle/`, text: 'Cliffe & Stuart Knechtle' },
-    { href: `${pathPrefix}more/`, text: 'More' }
+    { href: `${pathPrefix}about/`, text: 'About' },
+    { href: `${pathPrefix}projects/`, text: 'Projects' }
 ];
 
 const footerHTML = `
