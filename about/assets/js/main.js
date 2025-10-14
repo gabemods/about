@@ -72,7 +72,7 @@ function duplicateScrollerContent() {
 }
 
 function setScrollerAnimation(inner, setWidth, reverse) {
-    const speed = 30;
+    const speed = 20;
     const durationSec = setWidth / speed;
     
     const keyframeName = 'scrollAnim' + Math.random().toString(36).substring(2, 7);
@@ -197,7 +197,7 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => duplicateScrollerContent(), 2000);
+    resizeTimer = setTimeout(() => duplicateScrollerContent(), 20);
 });
 
 if (yearSpan) {
