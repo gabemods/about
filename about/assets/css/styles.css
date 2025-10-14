@@ -830,10 +830,10 @@ img {
     align-self: flex-start;
   }
   .projects-grid {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
   }
-   .footer {
+  .footer {
     padding: 2.5rem;
     font-size: 0.95rem;
   }
@@ -860,17 +860,11 @@ img {
     padding: 3rem;
     font-size: 1rem;
   }
-  .footer-top {
-    max-width: 1200px;
-  }
   .footer-title {
     font-size: 1.1rem; 
-    max-width: 700px;
   }
   .footer-description {
     font-size: 0.9rem; 
-    max-width: 1200px;
-    margin: 0 auto; 
     text-align: center; 
   }
   .footer-container {
@@ -921,14 +915,11 @@ img {
   }
   .footer-title {
     font-size: 1rem; 
-    max-width: 700px;
   }
   .footer-description {
     font-size: 0.9rem; 
-    max-width: 700px;
   }
   .footer-container {
-    max-width: 1200px;
     gap: 2.5rem;
     justify-content: space-between;
   }
@@ -952,19 +943,13 @@ img {
     padding: 4rem;
     font-size: 1.1rem;
   }
-  .footer-top {
-    max-width: 1000px; 
-  }
   .footer-title {
     font-size: 1rem; 
-    max-width: 1000px;
   }
   .footer-description {
     font-size: 0.9rem; 
-    max-width: 1400px;
   }
   .footer-container {
-    max-width: 1400px;
     gap: 3rem;
     justify-content: space-between;
   }
