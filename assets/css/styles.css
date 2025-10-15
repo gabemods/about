@@ -274,6 +274,15 @@ img {
   margin-right: 0; 
 }
 
+.featured-project-card h3 {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  text-align: left;
+  padding: 0;
+}
+
 .featured-project-info {
   width: 100%;
   display: flex; 
