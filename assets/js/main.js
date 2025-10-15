@@ -257,3 +257,13 @@ Jesus said to him, “I am the way, the truth, and the life. No one comes to the
 const footerPlaceholder = document.getElementById('footer-placeholder');
 
 if (footerPlaceholder) footerPlaceholder.innerHTML = footerHTML;
+
+const header = document.getElementById("projectsHeader");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});

@@ -22,18 +22,23 @@
 <body>
 <main class="content">
             
-<header class="oneui-header" id="oneuiHeader">
-  <div class="oneui-topbar" aria-hidden="true">
-    <a href="../" class="oneui-back" aria-label="Go Back">
+<header class="projects-header" id="projectsHeader">
+  <div class="projects-topbar" aria-hidden="true">
+    <a href="../" class="projects-back" aria-label="Go Back">
       <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
     </a>
-    <h1 class="oneui-title-small">All Projects</h1>
+    <h1 class="projects-title-small">All Projects</h1>
   </div>
   
-  <div class="oneui-large-title-wrapper" aria-hidden="false">
-    <h1 class="oneui-title-large">All Projects</h1>
+  <div class="projects-large-title-wrapper" aria-hidden="false">
+    <a href="../" class="projects-back projects-back-large" aria-label="Go Back">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </a>
+    <h1 class="projects-title-large">All Projects</h1>
   </div>
 </header>
             
@@ -160,18 +165,6 @@
         </main>
   
 <div id="footer-placeholder"></div>
-  
-   <script>
-     const header = document.getElementById("oneuiHeader");
-     
-     window.addEventListener("scroll", () => {
-       if (window.scrollY > 70) {
-         header.classList.add("scrolled");
-       } else {
-         header.classList.remove("scrolled");
-       }
-     });
-   </script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
