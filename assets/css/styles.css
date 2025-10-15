@@ -176,10 +176,21 @@ img {
   text-align: left;
 }
 
+.button-all-projects {
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  width: 90%;
+  max-width: 500px;
+}
+
 .projects-footer-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center; 
     margin-top: 20px;
     padding-bottom: 20px;
+    width: 100%;
 }
 
 .social-buttons {
