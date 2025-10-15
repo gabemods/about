@@ -120,7 +120,7 @@ function setupScroller(inner, travelPx, reverse) {
 }
 
 function openProjectModal(event) {
-    if (event.target.closest('a')) return;
+    if (event.target.closest('a') || event.target.closest('.button')) return;
     const card = event.currentTarget;
     const modal = document.getElementById("project-modal");
     if (!modal) return;
@@ -129,56 +129,77 @@ function openProjectModal(event) {
     const modalDesc = modal.querySelector(".modal-description");
     const modalWebsite = modal.querySelector(".modal-website");
     const modalGithub = modal.querySelector(".modal-github");
+    const isHomepage = !!document.getElementById('project-card-source');
+
     document.body.style.overflow = "hidden";
-    pauseAllScrollers();
-    const logo = card.querySelector("img") ? card.querySelector("img").src : "";
-    const title = card.querySelector("h3") ? card.querySelector("h3").innerText : "";
-    const desc = card.querySelector("p") ? card.querySelector("p").innerText : "";
-    const websiteLinkElement = card.querySelector("a");
-    const websiteLink = websiteLinkElement ? websiteLinkElement.href : null;
+    if (isHomepage) pauseAllScrollers();
+
+    const logo = card.dataset.image ? card.dataset.image : (card.querySelector("img") ? card.querySelector("img").src : "");
+    const title = card.dataset.name ? card.dataset.name : (card.querySelector("h3") ? card.querySelector("h3").innerText : "");
+    const desc = card.dataset.description ? card.dataset.description : (card.querySelector("p") ? card.querySelector("p").innerText : "");
+    const websiteLink = card.dataset.website ? card.dataset.website : null;
+    const githubLink = card.dataset.github ? card.dataset.github : null;
     const isDiscontinued = card.classList.contains("project-discontinued");
-    const githubLink = isDiscontinued ? websiteLink : null;
+
     if (modalLogo) modalLogo.src = logo;
+    if (modalLogo) modalLogo.alt = title + ' logo';
     if (modalTitle) modalTitle.innerText = title;
     if (modalDesc) modalDesc.innerText = desc;
-    if (isDiscontinued) {
-        if (modalWebsite) modalWebsite.style.display = "none";
-        if (modalGithub) {
-            modalGithub.style.display = githubLink ? "inline-block" : "none";
-            if (githubLink) {
-                modalGithub.href = githubLink;
-                modalGithub.textContent = "Archived Code";
-            }
-        }
+
+    if (websiteLink) {
+        modalWebsite.style.display = "flex";
+        modalWebsite.href = websiteLink;
+        modalWebsite.textContent = isDiscontinued ? "Archived Code" : "Open Website";
     } else {
-        if (modalWebsite) {
-            modalWebsite.style.display = websiteLink ? "inline-block" : "none";
-            if (websiteLink) {
-                modalWebsite.href = websiteLink;
-                modalWebsite.textContent = "Open Website";
-            }
-        }
-        if (modalGithub) modalGithub.style.display = "none";
+        modalWebsite.style.display = "none";
     }
+
+    if (githubLink) {
+        modalGithub.style.display = "flex";
+        modalGithub.href = githubLink;
+        modalGithub.textContent = "Open GitHub";
+    } else {
+        modalGithub.style.display = "none";
+    }
+
     modal.classList.add("active");
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById("project-modal");
+    if (!modal) return;
+    const isHomepage = !!document.getElementById('project-card-source');
+
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+    if (isHomepage) resumeAllScrollers();
 }
 
 function attachProjectCardListeners() {
     const modal = document.getElementById("project-modal");
     if (!modal) return;
     const modalClose = modal.querySelector(".modal-close");
+
     document.querySelectorAll(".project-card").forEach(card => {
         if (card._hasClickListener) return;
+
         card.addEventListener("click", openProjectModal);
         card._hasClickListener = true;
     });
+
     if (modalClose && !modalClose._hasClickListener) {
-        modalClose.addEventListener("click", () => {
-            modal.classList.remove("active");
-            document.body.style.overflow = "";
-            resumeAllScrollers();
-        });
+        modalClose.addEventListener("click", closeProjectModal);
         modalClose._hasClickListener = true;
+    }
+    
+    if (!modal._hasOutsideClickListener) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeProjectModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeProjectModal();
+        });
+        modal._hasOutsideClickListener = true;
     }
 }
 
@@ -193,6 +214,7 @@ prefersDark.addEventListener('change', applySystemTheme);
 
 window.addEventListener('load', () => {
     duplicateScrollerContent();
+    attachProjectCardListeners();
 });
 
 window.addEventListener('resize', () => {
@@ -205,12 +227,6 @@ if (yearSpan) {
 }
 
 const pathPrefix = window.location.pathname.split('/').length > 2 ? '../' : './';
-
-const links = [
-    { href: `${pathPrefix}`, text: 'Home' },
-    { href: `${pathPrefix}about/`, text: 'About' },
-    { href: `${pathPrefix}projects/`, text: 'Projects' }
-];
 
 const footerHTML = `
 <footer class="footer">
@@ -260,10 +276,12 @@ if (footerPlaceholder) footerPlaceholder.innerHTML = footerHTML;
 
 const header = document.getElementById("projectsHeader");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
+if (header) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+}
