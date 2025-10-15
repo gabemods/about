@@ -109,7 +109,7 @@ img {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 10%;
+  border-radius: 15%;
 }
 
 .lead, .verse, .meta, .featured-project-info p, .project-card p {

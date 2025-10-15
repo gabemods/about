@@ -72,7 +72,7 @@ function duplicateScrollerContent() {
 }
 
 function setScrollerAnimation(inner, setWidth, reverse) {
-    const speed = 30;
+    const speed = 20;
     const durationSec = setWidth / speed;
     
     const keyframeName = 'scrollAnim' + Math.random().toString(36).substring(2, 7);
@@ -197,9 +197,63 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => duplicateScrollerContent(), 2000);
+    resizeTimer = setTimeout(() => duplicateScrollerContent(), 20);
 });
 
 if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
 }
+
+const pathPrefix = window.location.pathname.split('/').length > 2 ? '../' : './';
+
+const links = [
+    { href: `${pathPrefix}`, text: 'Home' },
+    { href: `${pathPrefix}about/`, text: 'About' },
+    { href: `${pathPrefix}projects/`, text: 'Projects' }
+];
+
+const footerHTML = `
+<footer class="footer">
+  <div class="footer-top">
+    <h2 class="footer-title">Gabriel Longshaw</h2>
+    <p class="footer-description">
+      On this website you can find out a bit about me and all of my projects.
+    </p>
+  </div>
+
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="${pathPrefix}">Home</a></li>
+        <li><a href="${pathPrefix}projects/">Projects</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Connect</h3>
+      <p class="no-contact">No contact currently available.</p>
+      <ul>
+      <li><a href="https://github.com/gabriellongshaw">GitHub</a></li>
+        <li><a href="https://www.instagram.com/gabe.l07">Instagram</a></li>
+        <li><a href="https://youtube.com/@gabriellongshaw?si=DWkxGW_qTVH1oa1H">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © <span id="year"></span> Gabriel Longshaw. All rights reserved.
+      Website created and maintained by 
+      <a class="name" href="https://gabriellongshaw.co.uk/" target="_blank" rel="noopener">Gabriel Longshaw</a>.
+    </p>
+    <p class="meta">
+Jesus said to him, “I am the way, the truth, and the life. No one comes to the Father except through Me.” ‭‭John‬‭ 14‬: ‭6‬‭ NKJV‬‬
+</p>
+  </div>
+</footer>
+`;
+
+const footerPlaceholder = document.getElementById('footer-placeholder');
+
+if (footerPlaceholder) footerPlaceholder.innerHTML = footerHTML;
