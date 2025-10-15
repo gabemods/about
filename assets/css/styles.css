@@ -75,7 +75,7 @@ a {
 img {
   max-width: 100%;
   display: block;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .hero {
@@ -239,7 +239,7 @@ img {
 
 .featured-project-card {
   background: var(--card-bg);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1rem;
   border: 1px solid var(--border);
   box-shadow: 0 2px 8px var(--hero-accent);
@@ -256,8 +256,8 @@ img {
   max-width: 400px;
   height: auto;
   object-fit: contain;
-  border-radius: 10px;
-  margin-bottom: 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 0.3rem;
   display: block;
   margin-left: 0; 
   margin-right: 0; 
@@ -358,7 +358,7 @@ img {
   flex: 0 0 320px; 
   height: 140px; 
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow: 0 2px 8px var(--hero-accent);
   display: flex; 
