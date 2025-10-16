@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gabriellongshaw.co.uk/sitemap.xml
+Sitemap: https://www.gabriellongshaw.co.uk/sitemap.xml
