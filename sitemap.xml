@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gabriellongshaw.co.uk/</loc>
+    <loc>https://www.gabriellongshaw.co.uk/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gabriellongshaw.co.uk/about/</loc>
-    <priority>1.0</priority>
-  </url>
-    <url>
-    <loc>https://gabriellongshaw.co.uk/about/projects/</loc>
-    <priority>0.9</priority>
+    <loc>https://www.gabriellongshaw.co.uk/projects/</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>
