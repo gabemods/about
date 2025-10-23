@@ -1,4 +1,13 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://www.gabriellongshaw.co.uk/sitemap.xml
+Disallow: /assets/images/ anasmods-logo. jpeg
+Disallow: /assets/images/connect-four-logo.png
+Disallow: /assets/images/cool-button-logo. jpeg
+Disallow: /assets/images/ friends-1ogo.jpg
+Disallow: /assets/images/ httyd-logo. jpeg
+Disallow: /assets/images/logo. jpeg
+Disallow: /assets/images/ photography-logo. jpeg
+Disallow: /assets/images/settings-dialog-logo.png
+Disallow: /assets/images/ snapchat-outline-svgre.svg
+Disallow: /assets/images/The-Gospel-1ogo.png
+Sitemap: https: //
+www.gabriellongshaw.co.uk/sitemap.xml
