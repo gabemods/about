@@ -257,27 +257,24 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start; 
-  gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .featured-project-card img {
-  width: 100%;
+  width: 35%;
   max-width: 400px;
   height: auto;
   object-fit: contain;
   border-radius: 12px;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1rem;
   display: block;
-  margin-left: 0; 
-  margin-right: 0; 
 }
 
 .featured-project-card h3 {
   font-size: 1.2rem;
   color: var(--text);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0;
   font-weight: 700;
   text-align: left;
   padding: 0;
@@ -299,7 +296,7 @@ img {
   font-size: 0.9rem;
   color: var(--text);
   opacity: 0.7;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .featured-project-text-wrapper { 
@@ -771,7 +768,6 @@ img {
 
 @media (min-width: 600px) {
   .section-title,
-  .featured-project-container h3,
   .projects-section h2 {
     text-align: center;
     padding-left: 0;
@@ -784,8 +780,25 @@ img {
     width: 140px;
     height: 140px;
   }
+  .featured-project-card {
+    max-width: 700px; 
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center; 
+    gap: 1.5rem;
+    padding: 1.5rem; 
+  }
   .featured-project-card img {
     max-width: 200px;
+    margin-bottom: 0;
+  }
+  .featured-project-info {
+    flex: 1; 
+    text-align: left;
+  }
+  .button-featured {
+    align-self: flex-start; 
+    margin-top: 1rem;
   }
 }
 
@@ -813,6 +826,41 @@ img {
   }
   .footer .meta {
     font-size: 0.7rem; 
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-card {
+    max-width: 700px;
+    padding: 2.5rem;
+  }
+  .featured-project-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .featured-project-card img {
+    max-width: 250px;
+    margin-bottom: 0;
+  }
+  .featured-project-info {
+    width: auto;
+    flex: 1;
+    min-width: 250px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; 
+  }
+  .featured-project-card .button {
+    max-width: 220px;
+    width: auto;
+    align-self: flex-start; 
+    margin-top: 1.5rem; 
   }
 }
 
