@@ -242,7 +242,7 @@ img {
     user-select: auto; 
 }
 
-.projects-grid .project-card:hover {
+.projects-grid .project-card:hover:not(:has(.button:hover)) {
   background: var(--card-bg-hover);
 }
 
