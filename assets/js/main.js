@@ -94,17 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>Explore</h3>
           <ul>
             <li><a href="${pathPrefix}">Home</a></li>
-            <li><a href="${pathPrefix}projects/the-gospel">The Gospel</a></li>
-            <li><a href="${pathPrefix}projects/gabe-mods">Gabe Mods</a></li>
-            <li><a href="${pathPrefix}projects/gabriel-longshaw-about">Gabriel Longshaw | About</a></li>
-            <li><a href="${pathPrefix}projects/httyd-unofficial">HTTYD Unofficial</a></li>
-            <li><a href="${pathPrefix}projects/connect-four-game">Connect Four Game</a></li>
-            <li><a href="${pathPrefix}projects/friends">Friends</a></li>
-            <li><a href="${pathPrefix}projects/cool-button-design">Cool Button Design</a></li>
-            <li><a href="${pathPrefix}projects/photography">Photography</a></li>
-            <li><a href="${pathPrefix}projects/settings-dialog">Settings Dialog</a></li>
-            <li><a href="${pathPrefix}projects/gabe-mods-v2-disc">Gabe Mods V2 (Disc.)</a></li>
-            <li><a href="${pathPrefix}projects/anas-mods-disc">Anas Mods (Disc.)</a></li>
           </ul>
         </div>
 
