@@ -1,5 +1,4 @@
 :root {
-
   --bg: #ffffff;
   --header-bg: #fafafa;
   --footer-bg: #f8f8f8;
@@ -20,13 +19,12 @@
   --social-button-border: #aaa;
   --modal-bg: #fff;
   --modal-text: #000;
-  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --overlay-bg: rgba(200, 200, 200, 0.3);
   --btn-secondary-bg: #e6e6e6; 
   --btn-secondary-text: #000; 
 }
 
 body.dark {
-
   --bg: #121212;
   --footer-bg: #1e1e1e;
   --card-bg: #1e1e1e;
@@ -58,13 +56,11 @@ body.dark {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
   -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
   width: 100%; 
-
   font-family: ProductSansRegular, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   background: var(--bg);
@@ -238,7 +234,7 @@ img {
     border-radius: 12px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 5px var(--hero-accent); 
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
     cursor: pointer;
     flex: 1 1 auto; 
     text-align: left;
@@ -497,7 +493,7 @@ img {
   align-items: center;
   justify-content: center;
   background: var(--overlay-bg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
@@ -515,7 +511,7 @@ img {
   width: 90%;
   max-width: 500px;
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 18px;
   text-align: center;
   background: var(--modal-bg);
   color: var(--modal-text);
@@ -552,7 +548,7 @@ img {
   width: 100px;
   height: auto;
   margin-bottom: 1rem;
-  border-radius: 12px;
+  border-radius: 18px;
 }
 
 .modal-title {
