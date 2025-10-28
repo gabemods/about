@@ -497,12 +497,23 @@ img {
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .modal.active {
   opacity: 1;
   pointer-events: auto;
+}
+
+@keyframes modal-animation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .modal-content {
@@ -515,16 +526,16 @@ img {
   background: var(--modal-bg);
   color: var(--modal-text);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transform: scale(0.6);
+  transform: scale(0.7); 
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+  transition: none;
 }
 
 .modal.active .modal-content {
   transform: scale(1);
   opacity: 1;
+  animation: modal-animation 0.3s cubic-bezier(0.2, 0.5, 0.5, 1) forwards;
 }
-
 
 .modal-close {
   position: absolute;
