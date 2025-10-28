@@ -188,7 +188,7 @@ body.dark .moon-icon { display: block; }
     height: 100%;
     background: var(--search-overlay-bg);
     backdrop-filter: blur(20px);
-    z-index: 10000;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
