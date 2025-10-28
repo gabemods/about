@@ -31,6 +31,54 @@
   <link rel="canonical" href="https://www.gabriellongshaw.co.uk/">
 </head>
 <body>
+<header class="header">
+  <div class="header-container">
+    <a href="/" class="header-logo" aria-label="Home">
+      <img src="assets/images/header-logo-light.png" alt="Gabriel Longshaw Logo" class="logo-light" />
+      <img src="assets/images/header-logo-dark.png" alt="Gabriel Longshaw Logo" class="logo-dark" />
+    </a>
+
+    <div class="header-actions">
+      <button id="search-toggle" class="search-toggle" aria-label="Open search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="search-overlay" class="search-overlay">
+  <div class="search-modal-content">
+    <input type="search" id="fullscreen-search-input" class="search-input-full" 
+           placeholder="Search for any projects..." 
+           aria-label="Search projects" />
+    <button id="search-close" class="search-close" aria-label="Close search">&times;</button>
+  </div>
+  <div id="search-results-container" class="projects-grid search-results-grid"></div>
+</div>
   <main> 
       <section class="hero hero-centered">
         <div class="hero-card hero-grid">
