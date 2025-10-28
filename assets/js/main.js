@@ -1,3 +1,17 @@
+/**
+ * Global Debounce Function
+ * Ensures a function is only called after a specified delay 
+ * since the last time it was invoked. This prevents running heavy 
+ * operations (like search filtering) on every single keystroke.
+ */
+const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+};
+
 function openProjectModal(e) {
 
     e.preventDefault(); 
@@ -12,13 +26,6 @@ function openProjectModal(e) {
     const modalDesc = modal.querySelector(".modal-description");
     const modalWebsite = modal.querySelector(".modal-website");
     const modalGithub = modal.querySelector(".modal-github");
-
-    const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-    document.body.style.position = 'fixed'; 
-    document.body.style.top = `-${scrollY}`;
-    document.body.style.overflow = "hidden";
-
-    document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
 
     const logo = card.dataset.image ? card.dataset.image : (card.querySelector(".project-logo-wrapper img") ? card.querySelector(".project-logo-wrapper img").src : "");
     const title = card.dataset.name ? card.dataset.name : (card.querySelector("h3") ? card.querySelector("h3").innerText : "");
@@ -49,6 +56,7 @@ function openProjectModal(e) {
     }
 
     modal.classList.add("active");
+    document.body.classList.add('modal-open');
 }
 
 function closeProjectModal() {
@@ -56,13 +64,7 @@ function closeProjectModal() {
     if (!modal) return;
 
     modal.classList.remove("active");
-
-    const scrollY = document.body.style.top;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.overflow = "";
-
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    document.body.classList.remove('modal-open');
 }
 
 function attachProjectCardListeners() {
@@ -227,6 +229,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsContainer = document.getElementById('search-results-container');
 
     searchToggle.addEventListener('click', () => {
+        const scrollY = window.scrollY;
+        document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+        
+        document.documentElement.classList.add('scroll-lock');
+        document.documentElement.style.top = `-${scrollY}px`; 
+
         searchOverlay.classList.add('active');
 
         document.documentElement.style.scrollBehavior = 'auto';
@@ -238,8 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         searchInput.classList.add('active');
         searchClose.classList.add('active');
-
-        document.body.classList.add('search-active-lock');
 
         setTimeout(() => searchInput.focus(), 350); 
     });
@@ -254,7 +260,13 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.classList.remove('active');
         searchClose.classList.remove('active');
 
-        document.body.classList.remove('search-active-lock');
+        const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+        
+        document.documentElement.classList.remove('scroll-lock');
+        document.documentElement.style.top = ''; 
+
+        window.scrollTo(0, parseInt(scrollY || '0'));
+
         document.documentElement.style.scrollBehavior = '';
 
         searchInput.value = '';
@@ -308,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             category.includes(term);
 
             if (isMatch) {
-                const clonedCard = card.cloneNode(true);
+                const clonedCard = card.cloneNode(true); 
                 fragment.appendChild(clonedCard);
                 matchesFound = true;
 
@@ -327,8 +339,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const debouncedFilter = debounce(filterProjects, 200); 
+
     searchInput.addEventListener('input', (e) => {
-        filterProjects(e.target.value);
+        debouncedFilter(e.target.value);
     });
 
     attachProjectCardListeners(); 

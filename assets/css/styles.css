@@ -63,10 +63,6 @@ body.dark {
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  scroll-behavior: auto;
-}
-
 html, body {
   width: 100%; 
   font-family: ProductSansRegular, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -76,14 +72,6 @@ html, body {
   transition: background 0.2s, color 0.2s;
 }
 
-body.search-active-lock {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-}
 
 @font-face {
   font-family: 'ProductSansRegular';
