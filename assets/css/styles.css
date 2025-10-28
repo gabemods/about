@@ -63,14 +63,26 @@ body.dark {
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: auto;
+}
+
 html, body {
   width: 100%; 
   font-family: ProductSansRegular, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
   transition: background 0.2s, color 0.2s;
+}
+
+body.search-active-lock {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }
 
 @font-face {
@@ -176,7 +188,7 @@ body.dark .moon-icon { display: block; }
     height: 100%;
     background: var(--search-overlay-bg);
     backdrop-filter: blur(20px);
-    z-index: 1000;
+    z-index: 10000;
     display: flex;
     flex-direction: column;
     align-items: center;

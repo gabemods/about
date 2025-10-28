@@ -1,6 +1,10 @@
-function openProjectModal(event) {
-    if (event.target.closest('a') || event.target.closest('.button')) return;
-    const card = event.currentTarget;
+function openProjectModal(e) {
+
+    e.preventDefault(); 
+
+    if (e.target.closest('a') || e.target.closest('.button')) return;
+
+    const card = e.currentTarget;
     const modal = document.getElementById("project-modal");
     if (!modal) return;
     const modalLogo = modal.querySelector(".modal-logo img");
@@ -8,13 +12,17 @@ function openProjectModal(event) {
     const modalDesc = modal.querySelector(".modal-description");
     const modalWebsite = modal.querySelector(".modal-website");
     const modalGithub = modal.querySelector(".modal-github");
-    const isHomepage = !!document.getElementById('project-card-source');
 
+    const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+    document.body.style.position = 'fixed'; 
+    document.body.style.top = `-${scrollY}`;
     document.body.style.overflow = "hidden";
 
-    const logo = card.dataset.image ? card.dataset.image : (card.querySelector("img") ? card.querySelector("img").src : "");
+    document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+
+    const logo = card.dataset.image ? card.dataset.image : (card.querySelector(".project-logo-wrapper img") ? card.querySelector(".project-logo-wrapper img").src : "");
     const title = card.dataset.name ? card.dataset.name : (card.querySelector("h3") ? card.querySelector("h3").innerText : "");
-    const desc = card.dataset.description ? card.dataset.description : (card.querySelector("p") ? card.querySelector("p").innerText : "");
+    const desc = card.dataset.description ? card.dataset.description : (card.querySelector(".project-description") ? card.querySelector(".project-description").innerText : "");
     const websiteLink = card.dataset.website ? card.dataset.website : null;
     const githubLink = card.dataset.github ? card.dataset.github : null;
     const isDiscontinued = card.classList.contains("project-discontinued");
@@ -46,11 +54,15 @@ function openProjectModal(event) {
 function closeProjectModal() {
     const modal = document.getElementById("project-modal");
     if (!modal) return;
-    const isHomepage = !!document.getElementById('project-card-source');
 
     modal.classList.remove("active");
+
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
     document.body.style.overflow = "";
 
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }
 
 function attachProjectCardListeners() {
@@ -58,7 +70,7 @@ function attachProjectCardListeners() {
     if (!modal) return;
     const modalClose = modal.querySelector(".modal-close");
 
-    document.querySelectorAll(".project-card").forEach(card => {
+    document.querySelectorAll(".projects-grid .project-card").forEach(card => {
         if (card._hasClickListener) return;
 
         card.addEventListener("click", openProjectModal);
@@ -134,11 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        const projectName = card.getAttribute('data-name');
-        if (projectName) {
-            const slug = slugify(projectName.replace('(disc.)', '').trim());
-            card.href = `projects/${slug}`;
-        }
     });
 
     const body = document.body;
@@ -219,9 +226,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('fullscreen-search-input');
     const resultsContainer = document.getElementById('search-results-container');
 
-        searchToggle.addEventListener('click', () => {
+    searchToggle.addEventListener('click', () => {
         searchOverlay.classList.add('active');
 
+        document.documentElement.style.scrollBehavior = 'auto';
         searchOverlay.scrollTop = 0;
         searchOverlay.classList.remove('scrolled-down');
 
@@ -230,13 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         searchInput.classList.add('active');
         searchClose.classList.add('active');
-        
-        // FIX: Replaced body.style.overflow with class
+
         document.body.classList.add('search-active-lock');
-        
+
         setTimeout(() => searchInput.focus(), 350); 
     });
-
 
     const closeSearch = () => {
 
@@ -247,7 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         searchInput.classList.remove('active');
         searchClose.classList.remove('active');
-        body.style.overflow = '';
+
+        document.body.classList.remove('search-active-lock');
+        document.documentElement.style.scrollBehavior = '';
+
         searchInput.value = '';
         resultsContainer.innerHTML = '';
         resultsContainer.style.display = 'none';
@@ -256,6 +265,12 @@ document.addEventListener('DOMContentLoaded', () => {
     searchClose.addEventListener('click', closeSearch);
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+            closeSearch();
+        }
+    });
+
+    searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
             closeSearch();
         }
     });
@@ -296,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const clonedCard = card.cloneNode(true);
                 fragment.appendChild(clonedCard);
                 matchesFound = true;
+
                 if (clonedCard._hasClickListener) clonedCard.removeEventListener("click", openProjectModal);
                 clonedCard.addEventListener("click", openProjectModal);
                 clonedCard._hasClickListener = true;
