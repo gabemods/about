@@ -4,6 +4,8 @@
   --footer-bg: #f8f8f8;
   --card-bg: #fafafa;
   --card-bg-hover: #eee;
+  --logo-bg: #fafafa;
+  --logo-border: #ddd;
   --button: #000; 
   --button-text: #fff;
   --text: #111111;
@@ -32,6 +34,8 @@ body.dark {
   --footer-bg: #1e1e1e;
   --card-bg: #1e1e1e;
   --card-bg-hover: #333;
+  --logo-bg: #222;
+  --logo-border: #333;
   --button: #fff;
   --button-text: #000;
   --text: #eaeaea;
@@ -338,6 +342,24 @@ body.dark .search-overlay.active.scrolled-down .search-modal-content.is-sticky::
   height: 120px;
   object-fit: cover;
   border-radius: 15%;
+}
+
+.img-background {
+  background: var(--logo-bg);
+  border: 1px solid var(--logo-border);
+  border-radius: 15%;
+}
+
+.img-background .logo-dark { 
+    display: none;
+}
+
+body.dark .img-background .logo-light { 
+    display: none;
+}
+
+body.dark .img-background .logo-dark { 
+    display: block;
 }
 
 .lead, .verse { 
