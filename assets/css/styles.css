@@ -107,10 +107,11 @@ img {
 }
 
 .header-container {
-  max-width: 1200px;
+  
+  max-width: 100%; 
   height: 60px;
   margin: 0 auto;
-  padding: 0 0.5rem;
+  padding: 0 1rem; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1012,7 +1013,11 @@ footer {
     width: 140px;
     height: 140px;
   }
+  .header-container {
+    padding: 0 1.5rem;
+  }
 }
+
 
 @media (min-width: 768px) {
     .projects-grid .featured-project-card .card-header-row {
@@ -1033,7 +1038,11 @@ footer {
     .footer-section {
         flex: 1 1 45%;
     }
+    .header-container {
+      padding: 0 2rem; 
+    }
 }
+
 
 @media (min-width: 900px) {
   .hero-card {
@@ -1045,7 +1054,7 @@ footer {
     gap: 20px;
   }
   .footer {
-    padding: 2.5rem;
+    padding: 2rem 2.5rem; 
     font-size: 0.95rem;
   }
   .footer-container {
@@ -1064,14 +1073,15 @@ footer {
   }
 }
 
+
 @media (min-width: 1024px) {
   .footer {
-    padding: 3rem;
+    padding: 2.5rem 3rem; 
     font-size: 1rem;
   }
   .footer-container {
     gap: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; 
     justify-content: space-between;
     align-items: flex-start;
   }
@@ -1081,42 +1091,46 @@ footer {
   }
 }
 
+
 @media (min-width: 1200px) {
   .content {
-    padding: 2rem 0;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 2rem 0; 
+  }
+  .header-container {
+    max-width: 1200px; 
+    padding: 0; 
   }
   .hero-card {
     max-width: 800px;
   }
   .featured-project-card {
     max-width: 1000px;
-    padding: 2.5rem;
+    padding: 2rem; 
+  }
+  .footer {
+    padding: 3rem;
   }
 }
 
-@media (min-width: 1600px) {
-  .footer {
-    padding: 3.5rem;
-    font-size: 1rem;
-  }
-  .footer-container {
-    gap: 2.5rem;
-    justify-content: space-between;
-  }
-  .footer-section {
-    flex: 1 1 200px;
-    min-width: 200px;
-  }
-}
 
-@media (min-width: 2000px) {
-  .footer {
-    padding: 4rem;
-    font-size: 1.1rem;
+@media (min-width: 1400px) {
+  .content {
+    max-width: 1400px; 
+  }
+  .header-container {
+    max-width: 1400px;
   }
   .footer-container {
+    max-width: 1400px; 
+    margin: 0 auto;
+    padding: 0 2rem; 
     gap: 3rem;
-    justify-content: space-between;
+  }
+  .footer {
+    padding: 3rem 0; 
+    font-size: 1.05rem; 
   }
   .footer-section {
     flex: 1 1 250px;
