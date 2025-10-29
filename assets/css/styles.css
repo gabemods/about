@@ -17,9 +17,9 @@
   --inactive-color: #c8a200;
   --active-color: #00c853; 
   --meta-text: rgba(17, 17, 17, 0.6); 
-  --social-button-bg: #222;
-  --social-icon-fill: #eaeaea;
-  --social-button-border: #aaa;
+  --social-button-bg: #eee;
+  --social-icon-fill: #101010;
+  --social-button-border: #ddd;
   --modal-bg: #fff;
   --modal-text: #000;
   --overlay-bg: rgba(200, 200, 200, 0.3);
@@ -50,7 +50,7 @@ body.dark {
   --meta-text: rgba(234, 234, 234, 0.5); 
   --social-button-bg: #222;
   --social-icon-fill: var(--text);
-  --social-button-border: rgba(255, 255, 255, 0.2);
+  --social-button-border: #505050;
   --modal-bg: #111;
   --modal-text: #fff;
   --overlay-bg: rgba(0, 0, 0, 0.8);
