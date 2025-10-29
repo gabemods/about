@@ -813,12 +813,18 @@ body.dark .img-background .logo-dark {
 .modal-logo {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background: var(--logo-bg);
+  border-radius: 15%;
+  height: 100px;
+  width: 100px;
+  margin: auto;
 }
 
 .modal-logo img {
   width: 100px;
   height: auto;
-  margin-bottom: 1rem;
+  justify-content: center;
   border-radius: 18px;
 }
 
@@ -836,6 +842,7 @@ body.dark-mode .modal-logo .logo-dark {
 
 .modal-title {
   font-size: 1.2rem;
+  margin-top: 1rem;
   margin-bottom: 0.3rem;
 }
 
