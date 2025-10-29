@@ -190,8 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="no-contact">No contact currently available.</p>
           <ul>
           <li><a href="https://github.com/gabriellongshaw">GitHub</a></li>
-            <li><a href="https://www.instagram.com/gabe.l07">Instagram</a></li>
-            <li><a href="https://youtube.com/@gabriellongshaw?si=DWkxGW_qTVH1oa1H">YouTube</a></li>
+            <li><a href="https://www.instagram.com/gabriellongshaw">Instagram</a></li>
+            <li><a href="https://youtube.com/@gabriellongshaw">YouTube</a></li>
           </ul>
         </div>
       </div>
