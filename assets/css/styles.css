@@ -822,6 +822,18 @@ body.dark .img-background .logo-dark {
   border-radius: 18px;
 }
 
+.modal-logo .logo-dark {
+    display: none;
+}
+
+body.dark-mode .modal-logo .logo-light {
+    display: none;
+}
+
+body.dark-mode .modal-logo .logo-dark {
+    display: block;
+}
+
 .modal-title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;

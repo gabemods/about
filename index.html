@@ -177,16 +177,20 @@
               </div>
             </div>
             
-            <div class="project-card project-active" onclick="openProjectModal(event)"
+                  <div class="project-card project-active" onclick="openProjectModal(event)"
                  data-row="1" data-status="Active" data-tech="Web Dev" data-category="Portfolio" 
                  data-name="Gabriel Longshaw | About" 
-                 data-logo="https://avatars.githubusercontent.com/gabriellongshaw"
-                 data-description="The current website you are viewing, showcasing my profile, featured work, and project archives."
+                 data-logo="assets/images/logo-light.png"  data-logo-dark="assets/images/logo-dark.png" data-description="The current website you are viewing, showcasing my profile, featured work, and project archives."
                  data-website="https://gabriellongshaw.co.uk/" 
                  data-github="https://github.com/gabriellongshaw/gabriellongshaw.github.io">
+
               <div class="card-header-row">
                 <div class="project-logo-wrapper">
-                  <img src="https://avatars.githubusercontent.com/gabriellongshaw" alt="About Page logo">
+                  <div class="img-background">
+                <img src="assets/images/logo-light.png" alt="About page logo light" class="profile-img logo-light">
+  
+                <img src="assets/images/logo-dark.png" alt="About page logo dark" class="profile-img logo-dark">
+                 </div>
                 </div>
                 <div class="project-info">
                   <h3>Gabriel Longshaw | About</h3>
@@ -467,7 +471,10 @@
       <div id="project-modal" class="modal">
         <div class="modal-content">
           <button class="modal-close" onclick="closeProjectModal()">&times;</button>
-          <div class="modal-logo"><img src="" alt="Project Logo"></div>
+          <div class="modal-logo">
+           <img src="" alt="Project Logo Light" class="logo-light" data-modal-logo-light>
+           <img src="" alt="Project Logo Dark" class="logo-dark" data-modal-logo-dark>
+           </div>
           <h3 class="modal-title"></h3>
           <p class="modal-description"></p>
           <div class="modal-buttons">

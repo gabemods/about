@@ -21,43 +21,86 @@ function openProjectModal(e) {
     const card = e.currentTarget;
     const modal = document.getElementById("project-modal");
     if (!modal) return;
-    const modalLogo = modal.querySelector(".modal-logo img");
+
+    const modalLogoLight = modal.querySelector(".modal-logo .logo-light");
+    const modalLogoDark = modal.querySelector(".modal-logo .logo-dark");
+    
     const modalTitle = modal.querySelector(".modal-title");
     const modalDesc = modal.querySelector(".modal-description");
     const modalWebsite = modal.querySelector(".modal-website");
     const modalGithub = modal.querySelector(".modal-github");
 
-    const logo = card.dataset.image ? card.dataset.image : (card.querySelector(".project-logo-wrapper img") ? card.querySelector(".project-logo-wrapper img").src : "");
-    const title = card.dataset.name ? card.dataset.name : (card.querySelector("h3") ? card.querySelector("h3").innerText : "");
-    const desc = card.dataset.description ? card.dataset.description : (card.querySelector(".project-description") ? card.querySelector(".project-description").innerText : "");
-    const websiteLink = card.dataset.website ? card.dataset.website : null;
-    const githubLink = card.dataset.github ? card.dataset.github : null;
+    let lightLogoPath = card.dataset.logo;
+    let darkLogoPath = card.dataset.logoDark;
+
+    if (!lightLogoPath) {
+        const cardImg = card.querySelector(".project-logo-wrapper img:not(.logo-dark)");
+        if (cardImg) {
+            lightLogoPath = cardImg.src;
+            darkLogoPath = darkLogoPath || lightLogoPath; 
+        } else {
+            lightLogoPath = "";
+            darkLogoPath = "";
+        }
+    } else {
+        darkLogoPath = darkLogoPath || lightLogoPath;
+    }
+
+    const title = card.dataset.name || (card.querySelector("h3") ? card.querySelector("h3").innerText : "");
+    const desc = card.dataset.description || (card.querySelector(".project-description") ? card.querySelector(".project-description").innerText : "");
+    const websiteLink = card.dataset.website || null;
+    const githubLink = card.dataset.github || null;
     const isDiscontinued = card.classList.contains("project-discontinued");
 
-    if (modalLogo) modalLogo.src = logo;
-    if (modalLogo) modalLogo.alt = title + ' logo';
+    if (modalLogoLight) {
+        modalLogoLight.src = lightLogoPath;
+        modalLogoLight.alt = title + ' Logo Light';
+    }
+    if (modalLogoDark) {
+        modalLogoDark.src = darkLogoPath;
+        modalLogoDark.alt = title + ' Logo Dark';
+    }
+
     if (modalTitle) modalTitle.innerText = title;
     if (modalDesc) modalDesc.innerText = desc;
 
-    if (websiteLink) {
-        modalWebsite.style.display = "flex";
-        modalWebsite.href = websiteLink;
-        modalWebsite.textContent = isDiscontinued ? "Archived Code" : "Open Website";
-    } else {
-        modalWebsite.style.display = "none";
+    if (modalWebsite) {
+        if (websiteLink) {
+            modalWebsite.style.display = "flex";
+            modalWebsite.href = websiteLink;
+            modalWebsite.textContent = isDiscontinued ? "Archived Code" : "Open Website";
+            if (isDiscontinued) {
+                modalWebsite.classList.add('button-disabled');
+                modalWebsite.removeAttribute('target'); 
+            } else {
+                modalWebsite.classList.remove('button-disabled');
+                modalWebsite.setAttribute('target', '_blank');
+            }
+        } else {
+            modalWebsite.style.display = "none";
+        }
     }
 
-    if (githubLink) {
-        modalGithub.style.display = "flex";
-        modalGithub.href = githubLink;
-        modalGithub.textContent = "Open GitHub";
-    } else {
-        modalGithub.style.display = "none";
+    if (modalGithub) {
+        if (githubLink) {
+            modalGithub.style.display = "flex";
+            modalGithub.href = githubLink;
+            modalGithub.textContent = "Open GitHub";
+            modalGithub.setAttribute('target', '_blank');
+        } else {
+            modalGithub.style.display = "none";
+        }
     }
 
     modal.classList.add("active");
+    if (document.body.classList.contains('dark')) {
+        document.body.classList.add('dark-mode'); 
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
     document.body.classList.add('modal-open');
 }
+
 
 function closeProjectModal() {
     const modal = document.getElementById("project-modal");
