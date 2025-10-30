@@ -390,3 +390,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     attachProjectCardListeners(); 
 });
+
+
+function updateiOSStatusBar() {
+    const metaTag = document.getElementById('ios-status-bar-meta');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (prefersDark) {
+        metaTag.setAttribute('content', 'black'); 
+    } else {
+        metaTag.setAttribute('content', 'default');
+    }
+}
+
+updateiOSStatusBar();
+window.matchMedia('(prefers-color-scheme: dark)').addListener(updateiOSStatusBar);
