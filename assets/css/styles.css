@@ -1098,10 +1098,6 @@ footer {
     margin: 0 auto; 
     padding: 2rem 0; 
   }
-  .header-container {
-    max-width: 1200px; 
-    padding: 0; 
-  }
   .hero-card {
     max-width: 800px;
   }
@@ -1119,24 +1115,43 @@ footer {
   .content {
     max-width: 1400px; 
   }
-  .header-container {
-    max-width: 1400px;
-  }
-  .footer-container {
-    max-width: 1400px; 
-    margin: 0 auto;
-    padding: 0 2rem; 
-    gap: 3rem;
-  }
   .footer {
-    padding: 3rem 0; 
-    font-size: 1.05rem; 
-  }
-  .footer-section {
-    flex: 1 1 250px;
-    min-width: 250px;
+    font-size: 0.8rem;
   }
   .footer-top {
-    max-width: 1400px;
+    max-width: 1200px;
+  }
+  .footer-title {
+    font-size: 1rem;
+  }
+  .footer-description {
+    font-size: 0.8rem;
+  }
+  .footer-container {
+    max-width: 1200px;
+  }
+  .footer-section h3 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 2000px) {
+ .footer {
+    font-size: 0.7rem;
+  }
+  .footer-top {
+    max-width: 1200px;
+  }
+  .footer-title {
+    font-size: 1rem;
+  }
+  .footer-description {
+    font-size: 0.8rem;
+  }
+  .footer-container {
+    max-width: 1200px;
+  }
+  .footer-section h3 {
+    font-size: 0.9rem;
   }
 }
