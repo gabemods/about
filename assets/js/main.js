@@ -1,9 +1,3 @@
-/**
- * Global Debounce Function
- * Ensures a function is only called after a specified delay 
- * since the last time it was invoked. This prevents running heavy 
- * operations (like search filtering) on every single keystroke.
- */
 const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -24,7 +18,7 @@ function openProjectModal(e) {
 
     const modalLogoLight = modal.querySelector(".modal-logo .logo-light");
     const modalLogoDark = modal.querySelector(".modal-logo .logo-dark");
-    
+
     const modalTitle = modal.querySelector(".modal-title");
     const modalDesc = modal.querySelector(".modal-description");
     const modalWebsite = modal.querySelector(".modal-website");
@@ -100,7 +94,6 @@ function openProjectModal(e) {
     }
     document.body.classList.add('modal-open');
 }
-
 
 function closeProjectModal() {
     const modal = document.getElementById("project-modal");
@@ -199,6 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function applySystemTheme(e) {
         if (e.matches) body.classList.add('dark');
         else body.classList.remove('dark');
+
+        updateiOSStatusBar();
     }
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -259,6 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark');
+
+            updateiOSStatusBar(); 
         });
     }
 
@@ -274,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchToggle.addEventListener('click', () => {
         const scrollY = window.scrollY;
         document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
-        
+
         document.documentElement.classList.add('scroll-lock');
         document.documentElement.style.top = `-${scrollY}px`; 
 
@@ -304,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchClose.classList.remove('active');
 
         const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-        
+
         document.documentElement.classList.remove('scroll-lock');
         document.documentElement.style.top = ''; 
 
@@ -391,17 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
     attachProjectCardListeners(); 
 });
 
-
 function updateiOSStatusBar() {
     const metaTag = document.getElementById('ios-status-bar-meta');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (prefersDark) {
-        metaTag.setAttribute('content', 'black'); 
+
+    const isDarkTheme = document.body.classList.contains('dark');
+
+    if (!metaTag) return;
+
+    if (isDarkTheme) {
+
+        metaTag.setAttribute('content', 'default'); 
     } else {
-        metaTag.setAttribute('content', 'default');
+
+        metaTag.setAttribute('content', 'black');
     }
 }
-
-updateiOSStatusBar();
-window.matchMedia('(prefers-color-scheme: dark)').addListener(updateiOSStatusBar);
