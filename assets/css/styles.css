@@ -998,6 +998,11 @@ footer {
   font-size: 0.75rem; 
 }
 
+.copy {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
 @media (min-width: 600px) {
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 

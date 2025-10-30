@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <div class="footer-bottom">
         <p>
-          © <span id="year">${new Date().getFullYear()}</span> Gabriel Longshaw. All rights reserved.
+          <span class="copy">&copy </span><span id="year">${new Date().getFullYear()}</span> Gabriel Longshaw. All rights reserved.
           Website created and maintained by 
           <a class="name" href="https://gabriellongshaw.co.uk/" target="_blank" rel="noopener">Gabriel Longshaw</a>.
         </p>
